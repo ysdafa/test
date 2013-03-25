@@ -2,6 +2,4 @@
 void main()
 {
 	printf("helloworld!");
-
-	asdfas;
 }
