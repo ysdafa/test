@@ -3,5 +3,3 @@ void main()
 {
 	printf("helloworld!");
 }
-
-hi
