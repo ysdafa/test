@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Lagre notat?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 notat valgt"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d notater valgt"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Send e-post"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Legg til kommentar"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Legg til kontakt"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Tegning"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Endre notat"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Velg notat"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Opprett notat"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Rediger memo"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Ingen notater"
+

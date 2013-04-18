@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Spara memo?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 valt memo"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d valda memon"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Skicka e-post"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Lägg till kommentar"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Lägg till till kontakt"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Ritning"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Redigera anteckning"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Text"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Välj memo"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Skapa memo"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Redigera memo"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Inga memon"
+

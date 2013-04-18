@@ -1,0 +1,19 @@
+Source: map
+Section: devel
+Priority: extra
+Maintainer: Jingjing Zhang <j0322.zhang@samsung.com>, Ming Zhu <mingwu.zhu@samusng.com>
+Build-Depends: debhelper (>= 5), libappcore-efl-dev, libelm-dev, libaul-1-dev, libui-gadget-dev, libbundle-dev, dlog-dev
+Standards-Version: 0.1.3
+Homepage: N/A
+
+Package: com.samsung.allshare
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: allshare application
+
+Package: com.samsung.allshare-dbg
+Section: debug
+Architecture: any
+Depends: com.samsung.allshare(= ${Source-Version})
+Description: allshare dbg package
+

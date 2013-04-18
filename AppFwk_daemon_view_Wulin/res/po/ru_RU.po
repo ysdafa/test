@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Сохранить заметку?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Выбрана 1 заметка"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Выбрано заметок: %d"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Отправить E-mail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Добавить комментарий"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Добавить к контакту"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Рисунок"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Изменить заметку"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Текст"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Выберите заметку"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Создать  заметку"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Изменить заметку"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Нет заметок"
+

@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Tallennetaanko muistio?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 muistio valittu"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d muistiota valittu"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Lähetä sähköpostiviesti"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Lisää kommentti"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Lisää yhteystietoon"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Piirros"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Muokkaa huomautusta"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Teksti"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Valitse muistio"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Luo muistio"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Muokkaa muistiota"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Ei muistioita"
+

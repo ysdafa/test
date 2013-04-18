@@ -1,0 +1,127 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+PROJECT(create_view C )
+INCLUDE(FindPkgConfig)
+
+SET(RSRC_DIR res)
+SET(EDC_DIR edc)
+SET(IMG_DIR images)
+SET(LIB_DIR lib)
+SET(
+	SRCS 	src/demo.c
+	)
+
+SET(VENDOR "samsung")
+SET(PACKAGE ${PROJECT_NAME})
+SET(PKGNAME "com.${VENDOR}.${PACKAGE}")
+SET(PREFIX ${CMAKE_INSTALL_PREFIX})
+SET(XMLDIR ${CMAKE_INSTALL_XMLDIR})
+SET(BINDIR "${PREFIX}/bin")
+SET(RESDIR "${PREFIX}/res")
+SET(DBDIR "${PREFIX}/data")
+SET(DATADIR "${PREFIX}/data")
+SET(LOCALEDIR "${RESDIR}/locale")
+SET(ICONDIR "${RESDIR}/icons/default/small")
+SET(EDJDIR "${RESDIR}/edje")
+SET(LIBDIR "${PREFIX}/lib")
+SET(INCLUDEDIR "${PREFIX}/include")
+
+IF("${CMAKE_BUILD_TYPE}" STREQUAL "")
+	SET(CMAKE_BUILD_TYPE "Debug")
+ENDIF("${CMAKE_BUILD_TYPE}" STREQUAL "")
+MESSAGE("Build type: ${CMAKE_BUILD_TYPE}")
+
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
+
+pkg_check_modules(pkgs REQUIRED
+					appcore-common
+					appsvc
+					appcore-efl
+					elementary
+					dlog
+					ecore-input
+					ecore-imf
+					ecore-x
+					ecore
+					eina
+					bundle
+					evas
+					edje
+					ecore-file
+					capi-appfw-application
+					capi-appfw-app-manager 
+					capi-base-common	
+					ui-gadget-1
+				   )
+FOREACH(flag ${pkgs_CFLAGS})
+	SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} ${flag}")
+ENDFOREACH(flag)
+
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror-implicit-function-declaration -Wl,--unresolved-symbols=ignore-in-shared-libs -Wl,-zdefs")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
+SET(CMAKE_C_FLAGS_DEBUG "-O0 -g")
+SET(CMAKE_C_FLAGS_RELEASE "-O2")
+
+FIND_PROGRAM(UNAME NAMES uname)
+EXEC_PROGRAM("${UNAME}" ARGS "-m" OUTPUT_VARIABLE "ARCH")
+IF("${ARCH}" STREQUAL "arm")
+	ADD_DEFINITIONS("-DTARGET")
+	MESSAGE("add -DTARGET")
+ENDIF("${ARCH}" STREQUAL "arm")
+
+ADD_DEFINITIONS("-DPREFIX=\"${PREFIX}\"")
+ADD_DEFINITIONS("-DBINDIR=\"${BINDIR}\"")
+ADD_DEFINITIONS("-DLIBDIR=\"${LIBDIR}\"")
+ADD_DEFINITIONS("-DINCLUDEDIR=\"${INCLUDEDIR}\"")
+
+ADD_DEFINITIONS("-DVENDOR=\"${VENDOR}\"")
+ADD_DEFINITIONS("-DPACKAGE=\"${PACKAGE}\"")
+ADD_DEFINITIONS("-DPACKAGE_NAME=\"${PKGNAME}\"")
+
+ADD_DEFINITIONS("-DRESDIR=\"${RESDIR}\"")
+ADD_DEFINITIONS("-DDATADIR=\"${DATADIR}\"")
+ADD_DEFINITIONS("-DDATADIR=\"${DBDIR}\"")
+ADD_DEFINITIONS("-DLOCALEDIR=\"${LOCALEDIR}\"")
+ADD_DEFINITIONS("-DICONDIR=\"${ICONDIR}\"")
+ADD_DEFINITIONS("-DEDJDIR=\"${EDJDIR}\"")
+
+SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--as-needed")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-common -Wstrict-prototypes")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor")
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} "-ljpeg -lcapi-appfw-app-manager")
+
+ADD_CUSTOM_TARGET(create_view.edj
+					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
+					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view.edc
+					${CMAKE_BINARY_DIR}/create_view.edj
+					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view.edc )
+ADD_DEPENDENCIES(${PROJECT_NAME} create_view.edj)
+
+#ADD_CUSTOM_TARGET(view_theme.edj
+#					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
+#					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/view_theme.edc
+#					${CMAKE_BINARY_DIR}/view_theme.edj
+#					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/view_theme.edc )
+#ADD_DEPENDENCIES(${PROJECT_NAME} view_theme.edj)
+
+
+
+#TARGET_LINK_LIBRARIES(${PROJECT_NAME} /usr/lib/libcapi-location-manager.so)
+
+INSTALL(TARGETS ${PROJECT_NAME} DESTINATION ${BINDIR})
+INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view.edj DESTINATION ${EDJDIR})
+#INSTALL(FILES ${CMAKE_BINARY_DIR}/view_theme.edj DESTINATION ${EDJDIR})
+INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/res/images DESTINATION ${RESDIR})
+
+# install desktop file & icon
+CONFIGURE_FILE(${PKGNAME}.desktop.in ${PKGNAME}.desktop)
+INSTALL(FILES ${CMAKE_BINARY_DIR}/${PKGNAME}.desktop DESTINATION /usr/share/applications)
+
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/com.samsung.create_view.xml DESTINATION /usr/share/packages/)
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/com.samsung.create_view.png DESTINATION /usr/share/icons/default/small)
+
+INSTALL(DIRECTORY DESTINATION ${DATADIR})
+#INSTALL(FILES /usr/include/cairo/cairo.h DESTINATION ${CMAKE_SOURCE_DIR}/include)
+
+ADD_SUBDIRECTORY(res/po)

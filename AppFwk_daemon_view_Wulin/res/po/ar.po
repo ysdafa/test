@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "حفظ المذكرة؟"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "تم تحديد 1مذكرة"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "تم تحديد %d مذكرات‬"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "إرسال بريد إلكتروني"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "إضافة تعليق"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "إضافة إلى جهة اتصال"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "الرسم"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "تعديل الملاحظة"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "نص"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "تحديد مذكرة"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "إنشاء مذكرة"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "تعديل المذكرة"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "لا توجد مذكرات"
+

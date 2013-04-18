@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Simpan memo?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 memo dipilih"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d memo dipilih"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Hantar emel"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Tambah ulasan"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Tambah ke kenalan"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Melukis"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Sunting nota"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Teks"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Pilih memo"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Cipta memo"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Sunting memo"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Tiada memo"
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Create a directory to store rw data and assign permission as inhouse.
+if [ ${USER} == "root" ]
+then
+    if [ ! -d /opt/apps/com.samsung.allshare/data ]
+    then
+        mkdir -p /opt/apps/com.samsung.allshare/data
+    fi
+    # 5000 is inhouse user id
+	# do not use relative path
+    chown -R 5000:5000 /opt/apps/com.samsung.allshare/data
+fi

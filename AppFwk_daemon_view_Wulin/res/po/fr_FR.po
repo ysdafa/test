@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Enregistrer un mémo ?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 mémo sélectionné"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d mémos sélectionnés"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Envoyer un e-mail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Ajouter commentaire"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Ajouter aux contacts"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Dessin"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Modifier note"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Texte"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Sélectionner mémo"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Nouveau mémo"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Modifier un mémo"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Aucun mémo"
+

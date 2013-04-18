@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Notitie opslaan?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 notitie geselecteerd"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d notities geselecteerd"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "E-mail verzenden"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Opmerking toevoegen"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Toevoegen aan contactpersoon"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Tekening"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Notitie bewerken"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Memo selecteren"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Nieuwe notitie"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Notitie wijzigen"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Geen notities"
+

@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "メモ​を​保存​しますか？"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1件のメモを選択"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d件のメモを選択"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Eメール送信"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "コメント​​追加​"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "電話帳に追加"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "スケッチ"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "ノート​を​編集​します"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "テキスト"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "メモ​を​選択​して​ください"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "メモ​を​作成​します"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "メモ​を​編集"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "メモがありません。"
+
