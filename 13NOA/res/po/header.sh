@@ -1,0 +1,1 @@
+cat en.po | awk '{ if($1=="msgid") {ID=$0;} else if ($1=="msgstr"){printf("%s %s\n", ID, $0);}}' | sed "s/msgid//" | sed "s/msgstr//" | sed "s/^.*IDS_MEMO_\(.*\)\".*\"\(.*\)\".*$/#define MEMO_I18N_\1 _(\"IDS_MEMO_\1\") \/\/\2/"

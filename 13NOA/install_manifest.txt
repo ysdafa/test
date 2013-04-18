@@ -1,0 +1,12 @@
+/usr/apps/com.samsung.noa/bin/noa
+/usr/apps/com.samsung.noa/res/images/reduce_zoom.png
+/usr/apps/com.samsung.noa/res/images/00_controlbar_icon_favorites.png
+/usr/apps/com.samsung.noa/res/images/back_button.png
+/usr/apps/com.samsung.noa/res/images/00_controlbar_icon_contacts.png
+/usr/apps/com.samsung.noa/res/images/00_controlbar_icon_logs.png
+/usr/apps/com.samsung.noa/res/images/00_controlbar_icon_dialer.png
+/usr/apps/com.samsung.noa/res/images/00_controlbar_icon_playlist.png
+/usr/apps/com.samsung.noa/res/images/add_zoom.png
+/usr/share/applications/com.samsung.noa.desktop
+/usr/share/packages/com.samsung.noa.xml
+/usr/share/icons/default/small/com.samsung.noa.png

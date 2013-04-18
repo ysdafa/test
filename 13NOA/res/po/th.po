@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "บันทึก\n​สมุด​บันทึก?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "เลือก​สมุด​บันทึก 1 ​รายการ"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "เลือก​สมุด​บันทึก %d ​รายการ"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "ส่ง​อี​เมล์"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "เพิ่ม​ความ​คิด​เห็น"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "เพิ่ม​ใน​ราย​ชื่อ"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "รูป​วาด"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "แก้ไข​บันทึก"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "ตัว​อักษร"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "เลือก​สมุด​บันทึก"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "สร้าง​สมุด​บันทึก"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "แก้ไข​สมุด​บันทึก"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "ไม่มีสมุดบันทึก"
+

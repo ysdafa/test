@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Зберегти нагадування?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Вибрано 1 нагадування"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Вибрано нагадувань: %d"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Надіслати Email"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Додати коментар"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Додати до контакту"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Креслення"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Редагувати нотатку"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Текст"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Вибрати нагадування"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Створити нагадування"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Редагувати нагадування"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Немає нагадувань"
+

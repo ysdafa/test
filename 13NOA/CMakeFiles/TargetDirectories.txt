@@ -1,0 +1,2 @@
+/home/abuild/rpmbuild/BUILD/com.samsung.noa-0.0.1/src/CMakeFiles/noa.dir
+/home/abuild/rpmbuild/BUILD/com.samsung.noa-0.0.1/noa-common/CMakeFiles/noa-common.dir

@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Αποθήκευση σημειώματος;"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Επιλέχθηκε 1 σημείωμα"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Επιλέχθηκαν %d σημειώματα"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Αποστολή email"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Προσθήκη σχολίου"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Προσθήκη σε επαφή"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Σχέδιο"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Επεξεργασία σημείωσης"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Κείμενο"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Επιλογή σημειώματος"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Δημιουργία σημειώματος"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Επεξεργασία σημειώματος"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Κανένα σημείωμα"
+

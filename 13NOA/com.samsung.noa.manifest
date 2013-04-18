@@ -1,0 +1,12 @@
+<manifest>
+	<define>
+		<domain name="com.samsung.noa" />
+	</define>
+	<assign>
+		<filesystem path="/usr/share/applications/com.samsung.noa.desktop" label="_" />
+		<filesystem path="/usr/share/icons/default/small/com.samsung.noa.png" label="_" />
+	</assign>
+	<request>
+		<domain name="com.samsung.noa" />
+	</request>
+</manifest>

@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "मेमो सेव करें?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 मेमो चुना गया"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d मेमो चुने गए"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "ईमेल भेजें"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "टिप्पणी जोड़ें"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "संपर्क में जोड़ें"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "चित्रकारी"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "टिप्पणी संपादित करें"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "टेक्स्ट"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "मेमो चुनें"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "मेमो बनाएँ"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "मेमो संपादित करें"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "मेमो नहीं"
+

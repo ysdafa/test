@@ -1,0 +1,12 @@
+Name=noa
+Exec=/usr/apps/com.samsung.noa/bin/noa
+Icon=com.samsung.noa.png
+Type=Application
+MimeType=
+Nodisplay=False
+Version=0.0.1
+X-Tizen-TaskManage=True
+X-Tizen-Multiple=False
+X-Tizen-Removable=false
+
+Name[en_US]=noa

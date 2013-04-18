@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Zapisać notatkę?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Wybranych notatek: 1"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Wybranych notatek: %d"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Wyślij e-mail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Dodaj komentarz"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Dodaj do kontaktów"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Obrazek"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Edytuj notatkę"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Zaznaczanie notatki"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Utwórz notatkę"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Edytuj notatkę"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Brak notatek"
+

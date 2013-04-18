@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Vai saglabāt atgādni?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Izvēlēta 1 piezīme"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Izvēlētas %d piezīmes"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Sūtīt e-pasta ziņu"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Pievienot komentāru"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Pievienot kontaktam"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Zīmējums"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Rediģēt piezīmi"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Teksts"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Piezīmes izvēle"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Izveidot zīmīti"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Rediģēt zīmīti"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Piezīmju nav"
+

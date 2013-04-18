@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Uložit poznámku?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Byla vybrána 1 poznámka"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Bylo vybráno %d poznámek"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Odeslat e-mail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Přidat komentář"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Přidat do kontaktu"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Kreslení"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Upravit poznámku"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Text"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Zvolit poznámku"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Vytvořit poznámku"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Poznámka"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Žádné poznámky"
+
