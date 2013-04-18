@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Not kaydet?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 not seçildi"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d not seçildi"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "E-posta gönder"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Yorum ekle"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Rehbere ekle"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Çizim"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Notu düzenle"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Metin"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Not seçin"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Not oluştur"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Not düzenle"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Not yok"
+

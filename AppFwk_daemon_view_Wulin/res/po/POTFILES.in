@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+src/memo.c
+src/memo_edit.c
+src/memo_edit_list.c
+src/memo_portrait_view.c
+src/memo_search.c
+src/memo_sg.c
+src/memo_util.c

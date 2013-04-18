@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="com.samsung.create_view" version="0.0.1" install-location="internal-only">
+	<label>Episode Player</label>
+	<author email="hanwen.chen@samsung.com" href="www.samsung.com">Chen Hanwen</author>
+	<description>Joint Screen Client Application</description>
+	<ui-application appid="com.samsung.create_view" exec="/usr/apps/com.samsung.create_view/bin/create_view" nodisplay="false" multiple="false" type="c++app" taskmanage="true">
+		<icon>/usr/share/icons/default/small/com.samsung.create_view.png</icon>
+		<label>create_view</label>
+	</ui-application>
+</manifest>

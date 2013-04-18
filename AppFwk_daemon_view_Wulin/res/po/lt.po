@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Išsaugoti komentarą?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Pasirinktas 1 įrašas"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Pasirinkta įrašų: %d"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Siųsti el. laišką"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Pridėti komentarą"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Įtraukti adresatą"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Piešinys"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Redaguoti pastabą"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Tekstas"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Pasirinkite įrašą"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Kurti įrašą"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Redaguoti įrašą"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Pranešimų nėra"
+

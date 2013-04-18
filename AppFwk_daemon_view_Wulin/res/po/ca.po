@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Desar memoràndum?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 nota seleccionada"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d notes seleccionades"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Enviar correu electrònic"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Afegir comentari"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Afegir a contacte"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Dibuix"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Editar nota"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Text"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Seleccionar nota"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Crear memo"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Editar memo"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Sense memorànd"
+

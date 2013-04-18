@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Lưu ghi chú?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 ghi chú đã chọn"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d ghi chú đã chọn"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Gửi email"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Thêm bình luận"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Thêm vào danh bạ"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Hình vẽ"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Sửa ghi chú"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Văn bản"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Chọn ghi nhớ"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Tạo bản ghi chú"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Sửa ghi chú"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Không có ghi chú"
+

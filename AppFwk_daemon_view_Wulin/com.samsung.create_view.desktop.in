@@ -1,0 +1,12 @@
+Name=@PROJECT_NAME@
+Exec=@BINDIR@/@PROJECT_NAME@
+Icon=@PKGNAME@.png
+Type=Application
+MimeType=
+Nodisplay=False
+Version=0.0.1
+X-Tizen-TaskManage=True
+X-Tizen-Multiple=False
+X-Tizen-Removable=false
+
+Name[en_US]=create_view

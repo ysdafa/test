@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Menti a jegyzetet?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 jegyzet kijelölve"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d jegyzet kijelölve"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "E-mail küldése"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Megjegyzés hozzáadása"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Hozzáadás névjegyhez"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Rajz"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Jegyzet szerkesztése"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Szöveg"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Jegyzet kiválasztása"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Emlékeztető létrehozása"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Emlékeztető szerkesztése"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Nincs jegyzet"
+

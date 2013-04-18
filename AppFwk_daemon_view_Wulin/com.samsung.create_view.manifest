@@ -1,0 +1,12 @@
+<manifest>
+	<define>
+		<domain name="com.samsung.create_view" />
+	</define>
+	<assign>
+		<filesystem path="/usr/share/applications/com.samsung.create_view.desktop" label="_" />
+		<filesystem path="/usr/share/icons/default/small/com.samsung.create_view.png" label="_" />
+	</assign>
+	<request>
+		<domain name="com.samsung.create_view" />
+	</request>
+</manifest>

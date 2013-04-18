@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "¿Guardar nota?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 nota seleccionada"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d notas seleccionadas"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Enviar correo electrónico"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Añadir comentario"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Añadir a contacto"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Dibujo"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Editar nota"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Texto"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Seleccionar nota"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Crear nota"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Editar nota"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "No hay notas"
+

@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Salvare promemoria?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 promemoria selezionato"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d promemoria selezionati"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Invia e-mail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Agg. commento"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Aggiungi a contatto"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Disegno"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Modifica nota"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Testo"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Seleziona promemoria"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Crea promemoria"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Modifica promemoria"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Nessun promemoria"
+

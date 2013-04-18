@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "要保存备忘录吗？"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "已选择1个备忘录"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "已选择%d个备忘录"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "发送邮件"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "添加评论"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "添加到联系人"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "画图"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "编辑注释"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "文本"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "选择备忘录"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "新建备忘录"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "编辑备忘录"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "无备忘录"
+

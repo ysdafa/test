@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Записване на бележката?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "Избрана е 1 паметна бележка"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "Избрани са %d паметни бележки"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Изпращане на еmail"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Добавяне на коментар"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Добави към запис"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Рисунка"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Редактиране на бележка"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Текст"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Избор на бележка"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Създаване на записка"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Редакция на записка"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Няма бележки"
+

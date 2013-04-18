@@ -1,0 +1,39 @@
+msgid "IDS_MEMO_POP_DIALOG_SAVE_MEMO"
+msgstr "Spremiti zapis?"
+
+msgid "IDS_MEMO_POP_1_MEMO_SELECTED"
+msgstr "1 bilješka odabrana"
+
+msgid "IDS_MEMO_POP_PD_MEMOS_SELECTED"
+msgstr "%d odabranih bilješki"
+
+msgid "IDS_MEMO_OPT_SEND_EMAIL"
+msgstr "Pošalji email"
+
+msgid "IDS_MEMO_BODY_ADD_COMMENT"
+msgstr "Dodaj komentar"
+
+msgid "IDS_MEMO_BODY_ADD_TO_CONTACT"
+msgstr "Dodaj kontaktu"
+
+msgid "IDS_MEMO_BODY_DRAWING"
+msgstr "Crtež"
+
+msgid "IDS_MEMO_BODY_EDIT_NOTE"
+msgstr "Uredi bilješku"
+
+msgid "IDS_MEMO_BODY_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_MEMO_HEADER_SELECT_MEMO_ABB"
+msgstr "Odaberite bilješku"
+
+msgid "IDS_MEMO_HEADER_CREATE_MEMO"
+msgstr "Novi zapis"
+
+msgid "IDS_MEMO_BODY_EDIT_MEMO"
+msgstr "Uredi"
+
+msgid "IDS_MEMO_BODY_NO_MEMOS"
+msgstr "Nema zapisa"
+
