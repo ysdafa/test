@@ -96,19 +96,27 @@ ADD_CUSTOM_TARGET(create_view.edj
 					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view.edc )
 ADD_DEPENDENCIES(${PROJECT_NAME} create_view.edj)
 
-#ADD_CUSTOM_TARGET(view_theme.edj
-#					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
-#					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/view_theme.edc
-#					${CMAKE_BINARY_DIR}/view_theme.edj
-#					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/view_theme.edc )
-#ADD_DEPENDENCIES(${PROJECT_NAME} view_theme.edj)
+ADD_CUSTOM_TARGET(create_view_naviframe.edj
+					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
+					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view_naviframe.edc
+					${CMAKE_BINARY_DIR}/create_view_naviframe.edj
+					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view_naviframe.edc )
+ADD_DEPENDENCIES(${PROJECT_NAME} create_view_naviframe.edj)
 
-
+ADD_CUSTOM_TARGET(create_view_button.edj
+					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
+					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view_button.edc
+					${CMAKE_BINARY_DIR}/create_view_button.edj
+					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view_button.edc )
+ADD_DEPENDENCIES(${PROJECT_NAME} create_view_button.edj)
 
 #TARGET_LINK_LIBRARIES(${PROJECT_NAME} /usr/lib/libcapi-location-manager.so)
 
 INSTALL(TARGETS ${PROJECT_NAME} DESTINATION ${BINDIR})
 INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view.edj DESTINATION ${EDJDIR})
+INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view_button.edj DESTINATION ${EDJDIR})
+INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view_naviframe.edj DESTINATION ${EDJDIR})
+
 #INSTALL(FILES ${CMAKE_BINARY_DIR}/view_theme.edj DESTINATION ${EDJDIR})
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/res/images DESTINATION ${RESDIR})
 
