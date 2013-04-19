@@ -28,6 +28,9 @@
 #define APP_ABOUT "About create_view"
 #define EDJ_DIR APP_DIR"/res/edje"
 #define VIEW_EDJ EDJ_DIR"/create_view.edj"
+#define VIEW_BUTTON_EDJ EDJ_DIR"/create_view_button.edj"
+#define VIEW_NAVIFRAME_EDJ EDJ_DIR"/create_view_naviframe.edj"
+
 #define NUM_OF_ITEMS 7  //setting interface item number
 #define VIDEO_FILE_LIST "Movies"
 #define ICON_DIR PREFIX"/res/images"
@@ -660,13 +663,14 @@ void create_app_list_view(void *data)
     elm_object_focus_allow_set(back_btn,EINA_FALSE);
 	evas_object_show(back_btn);
 
-	//create preview genlist
-	//para->genlist = create_preview_genlist(para);
-	//elm_object_style_set(para->genlist, "dialogue");
-	//evas_object_show(para->genlist);
+	/* Appends a theme extension to the list of extenstions */
+	printf("edj file: %s\n", VIEW_BUTTON_EDJ);
+	printf("edj file: %s\n", VIEW_NAVIFRAME_EDJ);
+	elm_theme_extension_add(NULL, VIEW_BUTTON_EDJ );
+	elm_theme_extension_add(NULL, VIEW_NAVIFRAME_EDJ );
 
 	//naviframe_item = elm_naviframe_item_push(para->naviframe, APP_LIST, back_btn, NULL, NULL, NULL);
-	naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, back_btn, NULL, NULL, NULL);
+	naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, back_btn, NULL, NULL, "create_view");
 
 	if(naviframe_item == NULL)
     { 
@@ -688,7 +692,7 @@ void create_app_list_view(void *data)
 
 	//add for "elm.swallow.title"
 	tvshow_bt = elm_button_add(para->naviframe);
-	elm_object_style_set(tvshow_bt, "base/text_only/styletv");
+	elm_object_style_set(tvshow_bt, "create_view/styletv");
 	elm_object_text_set(tvshow_bt, "TV Shows");
 	//evas_object_smart_callback_add(para->whatsnew_button, "clicked",(Evas_Smart_Cb)_create_whats_new_gengrid, (void*) para);
 	elm_object_disabled_set(tvshow_bt, EINA_FALSE);
