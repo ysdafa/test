@@ -15,6 +15,10 @@
  *
  */
 
+#include <sys/types.h>
+#include <sys/dir.h>
+#include <sys/param.h>
+
 #include "noa.h"
 #include "elmdemo_util.h"
 #include "gengrid.h"
@@ -24,6 +28,9 @@
 #define EDIT_MODE 1
 
 #define ICON_DIR "images"
+
+#define PATHNAME "/mnt/nfs/NOA_IMAGES"
+
 
 typedef struct _Testitem
 {
@@ -176,6 +183,27 @@ static void _item_selected(void *data, Evas_Object *obj, void *event_inaviframeo
 		elm_gengrid_item_selected_set(ti->item, EINA_FALSE);
 }
 
+static int file_select(struct direct *entry)
+{
+	char *ptr;
+	//char *rindex(char *s, char c);
+
+	if ((strcmp(entry->d_name, ".")== 0) ||
+		(strcmp(entry->d_name, "..") == 0))
+		 return (FALSE);
+
+	/* Check for filename extensions */
+	ptr = rindex(entry->d_name, '.');
+	if ((ptr != NULL) &&
+		 ((strcmp(ptr, ".png") == 0)
+		 || (strcmp(ptr, ".jpg") == 0)
+		 || (strcmp(ptr, ".o") == 0) ))
+				 return (TRUE);
+	else
+		 return(FALSE);
+	}
+
+
 //type is "default_gridtext"
 static void _create_gengrid (void *data, char *type)
 {
@@ -238,20 +266,38 @@ static void _create_gengrid (void *data, char *type)
 	gic->func.state_get = NULL;
 	gic->func.del = NULL;
 
+	//try to enumerate /mnt/nfs/NOA_Images file name, add by yansu on 2013.4.19
+	int count;
+	struct direct **files;
+
+	count = scandir(PATHNAME, &files, file_select, alphasort);
+
+	/* If no files found, make a non-selectable menu item */
+	if (count <= 0)
+	{
+		printf("No files in this directory\n");
+		exit(0);
+	}
+	printf("Number of files = %d\n",count);
+	for (i=0;i<count;++i)
+		 printf("%s  ",files[i]->d_name);
+	printf("\n"); /* flush buffer */
+	
+
 	printf( "begin to create gengrid. \n" );
-	for (j = 0; j < 25; j++) {
-		for (i = 0; i < IMAGE_MAX; i++) {
-			n = i+(j*IMAGE_MAX);
-			snprintf(buf, sizeof(buf), "%s/%d_raw.jpg", ICON_DIR, i+1);
-			ti[n].index = n;
-			//printf( "file path is %s \n", buf );
-			ti[n].path = eina_stringshare_add(buf);
-			ti[n].item = elm_gengrid_item_append(gengrid, gic, &(ti[n]), _item_selected, &(ti[i]));
-			ti[n].checked = EINA_FALSE;
-			//snprintf(imagename, sizeof(imagename), "%d_raw.jpg", i+1);
-			ti[n].text = strdup(buf);
-			//printf( "file name text is %s \n", ti[n].text );
-			
+	for (i = 0; i < count; i++) {
+		n = i+(j*IMAGE_MAX);
+		snprintf(buf, sizeof(buf), "%s/%s", PATHNAME, files[i]->d_name);
+		ti[n].index = n;
+		//printf( "file path is %s \n", buf );
+		ti[n].path = eina_stringshare_add(buf);
+		printf("%s  ", ti[n].path);
+		ti[n].item = elm_gengrid_item_append(gengrid, gic, &(ti[n]), _item_selected, &(ti[i]));
+		ti[n].checked = EINA_FALSE;
+		//snprintf(imagename, sizeof(imagename), "%d_raw.jpg", i+1);
+		ti[n].text = strdup(buf);
+		//printf( "file name text is %s \n", ti[n].text );
+		
 //			if (n%4 == 0)
 //				ti[n].text = strdup("DavidRobinson.jpg");
 //			else if (n%4 == 1)
@@ -260,7 +306,6 @@ static void _create_gengrid (void *data, char *type)
 //				ti[n].text = strdup("1.jpg");
 //			else
 //				ti[n].text = strdup("2.jpg");
-		}
 	}
 
 
