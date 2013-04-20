@@ -216,6 +216,10 @@ static void _create_gengrid (void *data, char *type)
 	//evas_object_resize(ad->naviframe, w, THUMB_IMAGE_HEIGHT );	
 
 	gengrid = elm_gengrid_add(ad->naviframe);
+
+	//must set evas_object_size_hint_weight_set, otherwise, gengrid will not show by yansu on 4/20
+	evas_object_size_hint_weight_set(gengrid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(gengrid, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	//evas_object_size_hint_weight_set(gengrid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	//evas_object_size_hint_weight_set(gengrid, EVAS_HINT_EXPAND, 0.5);
 	//evas_object_size_hint_align_set(gengrid, EVAS_HINT_FILL, EVAS_HINT_FILL);
@@ -515,6 +519,17 @@ gengrid_create_view(void *data, char *type)
 		_back_btn_cb( ad, NULL, NULL );
 		return;
 	}
+
+	box = elm_box_add(ad->naviframe);
+	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_show(box);
+	elm_box_pack_end(box, gengrid);
+	//set color for box
+	//evas_object_color_set(box, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 1 );
+
+	// show gengrid
+	evas_object_show(gengrid);	
+	
 	//set to first grid
 	Elm_Object_Item *gg_it = elm_gengrid_first_item_get(gengrid);
 	//elm_gengrid_item_show(gg_it, ELM_GENGRID_ITEM_SCROLLTO_IN);
@@ -529,15 +544,7 @@ gengrid_create_view(void *data, char *type)
 	}
 
 	printf( "debug: create box to pack button.\n" );
-	box = elm_box_add(ad->naviframe);
-	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_show(box);
-	elm_box_pack_end(box, gengrid);
-	//set color for box
-	//evas_object_color_set(box, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 1 );
-
-	// show gengrid
-	evas_object_show(gengrid);	
+	
 
 /*	printf( "create back button. \n" ); 
 	back_btn = elm_button_add(ad->naviframe);
