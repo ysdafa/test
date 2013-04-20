@@ -59,14 +59,14 @@ char appNameCancelList[APP_CANCEL_LIST_COUNT][50] =
 	"extraordinary style",
 	"larger style"
 };
-
+/*
 static const char entry_input_text[] = {
 	"English is a application as a server, used to split screen display. "
 	"User can select the application from the running application list. "
 	"Its interface will be split screen display in two mobile phones. "
 	"Then open the English application, the screen will be display in the client."
 };
-
+*/
 static char *slider_itemlist[] = {
 	"text1",
 	"text2",

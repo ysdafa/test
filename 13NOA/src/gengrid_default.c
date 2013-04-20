@@ -25,13 +25,7 @@
 
 #define ICON_DIR "images"
 
-typedef struct _Testitem
-{
-	Elm_Object_Item *item;
-	const char *path;
-	int index;
-	int checked;
-} Testitem;
+
 
 static int mode;
 static int total_count;

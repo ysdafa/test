@@ -11,6 +11,7 @@ SET(SRCS
 	gengrid_gridtext.c
 	gengrid_default.c
 	gengrid_groupindex.c
+	noadetail.c
 )
 
 IF("${CMAKE_BUILD_TYPE}" STREQUAL "")

@@ -16,6 +16,19 @@
 
 #include "elmdemo_util.h"
 
+#define APP_LIST 					"Home Panel"
+#define APP_LIST_MAX_COUNT 		20
+#define APP_CANCEL_LIST_COUNT 	7
+#define APP_DIR						"/usr/apps/com.samsung.noa"
+#define LOCALE_DIR 				APP_DIR"/res/locale"
+#define APP_ABOUT 					"About noa"
+#define EDJ_DIR 					APP_DIR"/res/edje"
+#define VIEW_EDJ 					EDJ_DIR"/noa.edj"
+#define NUM_OF_ITEMS 				7  //setting interface item number
+#define VIDEO_FILE_LIST 			"Movies"
+#define ICON_DIR 					PREFIX"/res/images"
+
+
 #define _EDJ(x) elm_layout_edje_get(x)
 
 typedef enum _MOVING_TYPE
@@ -102,5 +115,17 @@ typedef enum
 	WIFI_UNCONNECTED,
 	VIDEO_OVER
 }ListType;
+
+
+typedef struct _Testitem
+{
+	Elm_Object_Item *item;
+	const char *text;
+	const char *path;
+	int index;
+	int checked;
+	Evas_Object *naviframe;
+} Testitem;
+
 
 #endif				//__DEF_NOA_APPLICATION_H__

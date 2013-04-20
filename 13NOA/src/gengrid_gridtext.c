@@ -22,6 +22,7 @@
 #include "noa.h"
 #include "elmdemo_util.h"
 #include "gengrid.h"
+#include "noadetail.h"
 
 #define IMAGE_MAX 20
 #define VIEW_MODE 0
@@ -31,15 +32,6 @@
 
 #define PATHNAME "/mnt/nfs/NOA_IMAGES"
 
-
-typedef struct _Testitem
-{
-	Elm_Object_Item *item;
-	const char *text;
-	const char *path;
-	int index;
-	int checked;
-} Testitem;
 
 static int mode;
 static int total_count;
@@ -175,12 +167,19 @@ static void _show_selected_items(Testitem *ti)
 
 static void _item_selected(void *data, Evas_Object *obj, void *event_inaviframeo)
 {
+	printf( "entry _item_selected_view\n");
+	
+	_show_noa_detail((void *)data, (Evas_Object *)obj,(void *)event_inaviframeo);
+
+/*
 	Testitem *ti = (Testitem *)data;
 
 	_show_selected_items(ti);
 
 	if (mode == VIEW_MODE)
 		elm_gengrid_item_selected_set(ti->item, EINA_FALSE);
+*/
+
 }
 
 static int file_select(struct direct *entry)
@@ -290,12 +289,13 @@ static void _create_gengrid (void *data, char *type)
 
 	printf( "begin to create gengrid. \n" );
 	for (i = 0; i < count; i++) {
-		n = i+(j*IMAGE_MAX);
+		n = i;
 		snprintf(buf, sizeof(buf), "%s/%s", PATHNAME, files[i]->d_name);
 		ti[n].index = n;
 		//printf( "file path is %s \n", buf );
 		ti[n].path = eina_stringshare_add(buf);
 		printf("%s  ", ti[n].path);
+		ti[n].naviframe = ad->naviframe;
 		ti[n].item = elm_gengrid_item_append(gengrid, gic, &(ti[n]), _item_selected, &(ti[i]));
 		ti[n].checked = EINA_FALSE;
 		//snprintf(imagename, sizeof(imagename), "%d_raw.jpg", i+1);

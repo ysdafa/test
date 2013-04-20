@@ -19,7 +19,8 @@
 
 #include "noa.h"
 
-
+#define NOA_DETAIL "NOA Detail"
+#define PATH_MAX 100
 
 
 void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo);
