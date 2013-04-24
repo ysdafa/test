@@ -27,7 +27,7 @@
 #define NUM_OF_ITEMS 				7  //setting interface item number
 #define VIDEO_FILE_LIST 			"Movies"
 #define ICON_DIR 					PREFIX"/res/images"
-
+#define GENGRID_EDJ					EDJ_DIR"/gengrid_custom.edj"
 
 #define _EDJ(x) elm_layout_edje_get(x)
 

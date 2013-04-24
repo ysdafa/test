@@ -109,14 +109,24 @@ ADD_CUSTOM_TARGET(create_view_button.edj
 					${CMAKE_BINARY_DIR}/create_view_button.edj
 					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/create_view_button.edc )
 
+
+ADD_CUSTOM_TARGET(gengrid_custom.edj
+					COMMAND edje_cc -id ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${IMG_DIR}
+					${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/gengrid_custom.edc
+					${CMAKE_BINARY_DIR}/gengrid_custom.edj
+					DEPENDS ${CMAKE_SOURCE_DIR}/${RSRC_DIR}/${EDC_DIR}/gengrid_custom.edc )
+ADD_DEPENDENCIES(${PROJECT_NAME} gengrid_custom.edj)
+
 ADD_DEPENDENCIES(${PROJECT_NAME} noa.edj)
 ADD_DEPENDENCIES(${PROJECT_NAME} create_view_naviframe.edj)
 ADD_DEPENDENCIES(${PROJECT_NAME} create_view_button.edj)
+
 
 # install edj file
 INSTALL(FILES ${CMAKE_BINARY_DIR}/noa.edj DESTINATION ${EDJDIR})
 INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view_button.edj DESTINATION ${EDJDIR})
 INSTALL(FILES ${CMAKE_BINARY_DIR}/create_view_naviframe.edj DESTINATION ${EDJDIR})
+INSTALL(FILES ${CMAKE_BINARY_DIR}/gengrid_custom.edj DESTINATION ${EDJDIR})
 
 INSTALL(TARGETS ${PROJECT_NAME} DESTINATION ${BINDIR})
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/res/images DESTINATION ${RESDIR})

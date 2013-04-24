@@ -785,8 +785,8 @@ collections {
     			description {               
     				state: "default" 0;               
     				//color: 255 255 255 255;               
-					rel1 { relative: 0.0 0.1; to: "bg";}
-					rel2 { relative: 0.3 0.4; to: "bg";}               
+					rel1 { relative: 0.05 0.1; to: "bg";}
+					rel2 { relative: 0.25 0.4; to: "bg";}               
     				image {                  
     					normal: "noa_detail.png";               
     					}            
@@ -853,6 +853,7 @@ collections {
     			scale: 1;
     			description {
     				state: "default" 0.0;
+					fixed: 1 1;
     				align: 0.0 0.0;
     				rel1 { relative: 0.4 0.0; to: "button_area";offset: 0 0;}
     				rel2 { relative: 0.6 1.0; to: "button_area";offset: 0 0;}
@@ -866,6 +867,7 @@ collections {
     			scale: 1;
     			description {
     				state: "default" 0.0;
+					fixed: 1 1;
     				align: 0.0 0.0;
     				rel1 { relative: 0.6 0.0; to: "button_area";offset: 0 0;}
     				rel2 { relative: 0.8 1.0; to: "button_area";offset: 0 0;}
@@ -898,6 +900,18 @@ collections {
     			}
     		}
 
+			part {
+				name: "gengrid_group";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.0 0.5;
+					rel1 { relative: 0.0 0.6; to: "bg";offset: 0 0;}
+					rel2 { relative: 1.0 1.0; to: "bg";offset: 0 0;}
+				}
+			}
 
 
 
