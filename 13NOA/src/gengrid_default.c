@@ -222,7 +222,7 @@ _create_gengrid (void *data)
 	for (j = 0; j < 25; j++) {
 		for (i = 0; i < IMAGE_MAX; i++) {
 			n = i+(j*IMAGE_MAX);
-			snprintf(buf, sizeof(buf), "%s/%d_raw.jpg", ICON_DIR, i+1);
+			snprintf(buf, sizeof(buf), "%s/%d.jpg", ICON_DIR, i+1);
 			ti[n].index = n;
 			ti[n].path = eina_stringshare_add(buf);
 			ti[n].item = elm_gengrid_item_append(gengrid, gic, &(ti[n]), _item_selected, &(ti[i]));
