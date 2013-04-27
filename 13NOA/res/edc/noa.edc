@@ -1,4 +1,355 @@
+
+#include "tmp-inc.edc"
+
+#define LOCAL_NAVIFRAME_BG_COLOR_INC 30 18 51 0
+#define LOCAL_NAVIFRAME_HEAD_COLOR_INC 106 71 171 0
+#define LOCAL_NAVIFRAME_TOOLBAR_COLOR_INC 27 15 44 0
+
+#define LOCAL_CONTACT_VIEW_TITLE_H_INC 90
+#define LOCAL_CONTACT_VIEW_TITLE_W_INC 90
+#define LOCAL_CONTACT_VIEW_GENGRID_GROUP_H_INC 110
+#define LOCAL_CONTACT_VIEW_PREV_BUTTON_WIDE_INC 86
+#define LOCAL_CONTACT_VIEW_PREV_BUTTON_HEIGHT_INC 98
+
+#define NAVIFRAME_HEAD_H_INC 211
+#define LOCAL_NAVIFRAME_TOOLBAR_HEIGHT_INC 98
+#define LOCAL_NAVIFRAME_TOOLBAR_BOTTOM_INC 20
+
+#define NAVIFRAME_CONTENT_H_INC 472
+#define NAVIFRAME_PREV_BUTTON_WIDE_INC 115
+#define NAVIFRAME_HEAD_WIDE_INC 20
+
+#define NAVIFRAME_ITEM_INFO_H_INC 158
+#define NAVIFRAME_ITEM_INFO_A_INC 54
+#define NAVIFRAME_ITEM_INFO_B_INC 42
+#define NAVIFRAME_ITEM_INFO_C_INC 42
+
+// set for TVSHOWS_LAYOUT
+#define LOCAL_TVSHOWS_LAYOUT_BG_COLOR_INC 30 18 51 30
+#define LOCAL_TVSHOWS_LAYOUT_HEAD_RECT_SIZE 400 400
+#define LOCAL_TVSHOWS_LAYOUT_HEAD_TEXT_RECT_SIZE 400 100
+#define LOCAL_TVSHOWS_LAYOUT_HEAD_TEXT_SIZE 60
+
+// for 1920x1080
+#define LOCAL_TVSHOWS_LAYOUT_GENGRID_REL1_OFFSET 64 258
+#define LOCAL_TVSHOWS_LAYOUT_GENGRID_REL2_OFFSET 0  832
+// recommend_info
+#define LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_SIZE_MIN 50  40
+#define LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_SIZE_MAX 600 40
+#define LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_REL1_OFFSET -600  200
+#define LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_REL2_OFFSET -20   258
+#define LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_TEXT_SIZE 20
+// tool bar for buttun 
+#define LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_HEIGHT 86
+#define NEG_LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_HEIGHT -86
+#define LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_WIDE   640
+#define LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX 640  86
+#define LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE 40
+// tool bar divdid 
+#define LOCAL_TVSHOWS_LAYOUT_TOOLBAR_DVID_HEIGHT   20
+#define NEG_LOCAL_TVSHOWS_LAYOUT_TOOLBAR_DVID_HEIGHT   -20
+
+#define LOCAL_TVSHOWS_LAYOUT_HEAD_COLOR 186 66 179 255
+#define LOCAL_TVSHOWS_LAYOUT_TEXT_COLOR 255 255 255 255
+
+// for 1920x1080 movies
+#define LOCAL_MOVIES_LAYOUT_BG_COLOR_INC 30 18 51 30
+#define LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE 400 400
+#define LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE 350 100
+#define LOCAL_MOVIES_LAYOUT_HEAD_TEXT_SIZE 50
+#define LOCAL_MOVIES_LAYOUT_HEAD_TEXT_OFFSET 40 0
+// for 1920x1080
+#define LOCAL_MOVIES_LAYOUT_GENGRID_REL1_OFFSET 64 240  // 64 258
+#define LOCAL_MOVIES_LAYOUT_GENGRID_REL2_OFFSET 0  840  // 0  832
+// recommend_info
+#define LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MIN 50  40
+#define LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MAX 600 40
+#define LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL1_OFFSET -600  200
+#define LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL2_OFFSET -20   240  // -20 258
+#define LOCAL_MOVIES_LAYOUT_RECOMM_INFO_TEXT_SIZE 20
+// tool bar for buttun 
+#define LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_HEIGHT 86
+#define NEG_LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_HEIGHT -86
+#define LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_WIDE   640
+#define LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX 640  86
+#define LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE 40
+// tool bar divdid 
+#define LOCAL_MOVIES_LAYOUT_TOOLBAR_DVID_HEIGHT   20
+#define NEG_LOCAL_MOVIES_LAYOUT_TOOLBAR_DVID_HEIGHT   -20
+
+#define LOCAL_MOVIES_LAYOUT_HEAD_COLOR 108 74 174 255
+#define LOCAL_MOVIES_LAYOUT_HEAD_SECOND_COLOR 141 110 202 255
+
+#define LOCAL_MOVIES_LAYOUT_TEXT_COLOR 255 255 255 255
+
+// for whats_new offset in movies layout
+#define LOCAL_MOVIES_LAYOUT_HEAD_REL1_OFFSET 25  25
+#define LOCAL_MOVIES_LAYOUT_HEAD_REL2_OFFSET 425 425
+
+// for whats new info bar
+#define LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_HEIGHT 50
+#define LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_SIZE   20
+#define LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_HEIGHT  100
+#define LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_SIZE    50
+
+
 collections {
+	group 
+	{
+		name: "set_contact_view";
+		
+		images {   
+			image: "noa_detail.png" COMP;
+			}
+		
+		parts {
+			part { name: "base";
+				type: RECT;
+				mouse_events:  0;
+				description { state: "default" 0.0;
+					visible: 0;
+					rel1.relative: 0.0 0.0;
+					rel2.relative: 1.0 1.0;
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC; 
+				}
+			}	
+			part{
+				name: "head_tile";
+				type: SWALLOW;
+				scale: 1;
+				description { state: "default" 0.0;
+					min: LOCAL_CONTACT_VIEW_TITLE_W_INC LOCAL_CONTACT_VIEW_TITLE_H_INC; //90 90
+					max: LOCAL_CONTACT_VIEW_TITLE_W_INC LOCAL_CONTACT_VIEW_TITLE_H_INC; //90 90
+					align: 0.0 0.0;
+					fixed: 0 1;
+					//color: LOCAL_NAVIFRAME_HEAD_COLOR_INC;
+					rel1 { relative: 0.0 0.0; to: "base"; }
+				}
+				description { state: "hide" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+					max: 0 0;
+					fixed: 1 1;
+				}			
+			}
+			part{
+				name: "head_rect";
+				type: RECT;
+				scale: 1;
+				description { state: "default" 0.0;
+					align: 0.0 0.0;
+					fixed: 0 1;
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+					rel1 { relative: 1.0 0.0; to: "head_tile"; }
+					rel2.relative: 1.0 1.0; 
+					rel2.to_x: "base";
+					rel2.to_y: "head_tile";
+				}
+				description { state: "hide" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+					max: 0 0;
+					fixed: 1 1;
+				}			
+			}
+			part {
+				name: "gengrid_bg";
+				mouse_events: 0;
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1.relative: 0.0 1.0;
+					rel1.to: "base";
+					rel1.offset: 0 -LOCAL_CONTACT_VIEW_GENGRID_GROUP_H_INC;
+					rel2.relative: 1.0 1.0;
+					rel2.to: "base";
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}
+			part {
+				name: "bg";
+				mouse_events: 0;
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1.relative: 0.0 1.0;
+					rel1.to: "head_tile";
+					rel2 { relative: 1.0 1.0;}
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}			
+            part { 
+    		 	type: IMAGE;            
+    			description {               
+    				state: "default" 0;               
+    				////color: 255 255 255 255;               
+					rel1 { relative: 0.0 0.1; to: "bg";}
+					rel2 { relative: 0.3 0.4; to: "bg";}               
+    				image {                  
+    					normal: "noa_detail.png";               
+    					}            
+    				}         
+    			}	
+    			
+			/*For contact list */
+			part {
+				name: "entry";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.0 0.0;
+					rel1 { relative: 0.3 0.1; to: "bg";}
+					rel2 { relative: 1.0 0.4; to: "bg";}
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}
+
+			part {
+				name: "button_area";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.0 0.0;
+					rel1 { relative: 0.0 1.0; to: "entry";offset: 0 20;}
+					rel2 { relative: 1.0 1.0; to: "entry";offset: 0 100;}
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}
+			
+			part {
+				name: "button_watch_now";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.0 0.0;
+					rel1 { relative: 0.0 0.0; to: "button_area";offset: 0 0;}
+					rel2 { relative: 0.3 1.0; to: "button_area";offset: 0 0;}
+				}
+			}
+
+    		part {
+    			name: "button_love";
+    			type: SWALLOW;
+    			mouse_events: 1;
+    			scale: 1;
+    			description {
+    				state: "default" 0.0;
+    				align: 0.0 0.0;
+    				rel1 { relative: 0.3 0.0; to: "button_area";offset: 0 0;}
+    				rel2 { relative: 0.4 1.0; to: "button_area";offset: 0 0;}
+    			}
+    		}
+
+    		part {
+    			name: "button_good";
+    			type: SWALLOW;
+    			mouse_events: 1;
+    			scale: 1;
+    			description {
+    				state: "default" 0.0;
+    				align: 0.0 0.0;
+    				rel1 { relative: 0.4 0.0; to: "button_area";offset: 0 0;}
+    				rel2 { relative: 0.6 1.0; to: "button_area";offset: 0 0;}
+    			}
+    		}
+    
+    		part {
+    			name: "button_bad";
+    			type: SWALLOW;
+    			mouse_events: 1;
+    			scale: 1;
+    			description {
+    				state: "default" 0.0;
+    				align: 0.0 0.0;
+    				rel1 { relative: 0.6 0.0; to: "button_area";offset: 0 0;}
+    				rel2 { relative: 0.8 1.0; to: "button_area";offset: 0 0;}
+    			}
+    		}
+    
+    		part {
+    			name: "button_facebook";
+    			type: SWALLOW;
+    			mouse_events: 1;
+    			scale: 1;
+    			description {
+    				state: "default" 0.0;
+    				align: 0.0 0.0;
+    				rel1 { relative: 0.8 0.0; to: "button_area";offset: 0 0;}
+    				rel2 { relative: 0.9 1.0; to: "button_area";offset: 0 0;}
+    			}
+    		}
+    
+    		part {
+    			name: "button_twitter";
+    			type: SWALLOW;
+    			mouse_events: 1;
+    			scale: 1;
+    			description {
+    				state: "default" 0.0;
+    				align: 0.0 0.0;
+    				rel1 { relative: 0.9 0.0; to: "button_area";offset: 0 0;}
+    				rel2 { relative: 1.0 1.0; to: "button_area";offset: 0 0;}
+    			}
+    		}
+			// prev_btn_bg is in gengrid_bg
+			part { name: "prev_btn_bg";
+				type: RECT;
+				scale: 1;
+				mouse_events: 0;
+				description { state: "default" 0.0;
+					min: LOCAL_CONTACT_VIEW_PREV_BUTTON_WIDE_INC 0;   //86 0
+					visible: 1;
+					fixed: 1 0;
+					align: 1.0 0.0;
+					rel1.relative: 1.0 0.0;
+					rel1.to: "gengrid_bg";
+					rel1.offset: -LOCAL_CONTACT_VIEW_PREV_BUTTON_WIDE_INC 0;
+					rel2 { relative: 1.0 1.0; to: "gengrid_bg"; }
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}		
+			part { 
+				name: "prev_btn";
+				type: SWALLOW;
+				scale: 1;
+				description { state: "default" 0.0;
+					max: NAVIFRAME_PREV_FUNC_BTN_SIZE_INC;  //86 98
+					fixed: 1 1;
+					align: 0.5 0.5;
+					rel1.relative: 1.0 1.0;
+					rel1.to: "prev_btn_bg";
+					rel1.offset: -LOCAL_CONTACT_VIEW_PREV_BUTTON_WIDE_INC -LOCAL_CONTACT_VIEW_PREV_BUTTON_HEIGHT_INC;
+					rel2.relative: 1.0 1.0;
+					rel2.to: "prev_btn_bg";
+					visible: 1;
+				}
+			}
+			part {
+				name: "gengrid_group";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.5 0.5;
+					rel1.relative: 0.0 0.0;
+					rel1.to: "gengrid_bg";
+					rel2.relative: 0.0 1.0;
+					rel2.to: "prev_btn_bg";
+					//color: LOCAL_NAVIFRAME_BG_COLOR_INC;
+				}
+			}			
+		} /* end parts */
+	}
+	
 	group {
 		name: "progress_popup";
 		parts {
@@ -11,7 +362,7 @@ collections {
 					fixed: 1 1;
 					rel1 { relative: 0 0; /*offset: 0 0;*/ }
 					rel2 { relative: 1 1; /*offset: -1 -1;*/ }
-					color: 0 0 0 0;
+					//color: 0 0 0 0;
 				}
 			}
 
@@ -51,7 +402,7 @@ collections {
 				fixed: 0 1;
 				rel1 { relative: 0.0 0.0; }
 				rel2 { relative: 1.0 0.0; }
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				align: 0 0;
 				}
 			 }
@@ -65,7 +416,7 @@ collections {
 				fixed: 0 1;
 				rel1 { relative: 0.0 0.0; }
 				rel2 { relative: 1.0 0.0; }
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				align: 0 0;
 				}
 			 }
@@ -75,7 +426,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 96 24;
 				max : 96 24;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 0.0 1.0; to_y: "top_center_padding";}
 				rel2 { relative: 1.0 1.0; to_y: "top_center_padding";}
@@ -102,7 +453,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 40 120;
 				max : 40 120;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 1.0 0.0; to_x: "center_rect"; }
 				rel2 { relative: 1.0 0.0; }
@@ -115,7 +466,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 120 120;
 				max : 120 120;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 1.0 1.0; to_x: "right_rect_padding"; to_y: "top_padding";}
 				rel2 { relative: 1.0 1.0; to_y: "top_padding";}
@@ -140,7 +491,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 0 10;
 				max : 0 10;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 0 1;
 				rel1 { relative: 0.0 1.0; to_y: "right_rect";}
 				align: 0.0 0;
@@ -151,7 +502,7 @@ collections {
 			 scale: 1; //allow scaling
 			 description { state: "default" 0.0;
 				min : 0 30;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 0.55 1.0; to_y: "right_rect_bottom_padding"; }
 				rel2 { relative: 0.95 1.0; to_y: "right_rect_bottom_padding"; }
@@ -171,7 +522,7 @@ collections {
 				   min: 0 0;
 				   align: 0.5 0;
 				  }
-				color : 0 0 0 255;
+				//color : 0 0 0 255;
 				rel1 { relative: 0.0 0.0; to: "right_text"; }
 				rel2 { relative: 1.0 1.0; to: "right_text"; }
 				align: 0.5 0;
@@ -183,7 +534,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 40 120;
 				max : 40 120;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 0.0 0.0; }
 				rel2 { relative: 0.0 0.0; to_x: "center_rect"; }
@@ -197,7 +548,7 @@ collections {
 			 description { state: "default" 0.0;
 				min : 120 120;
 				max : 120 120;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 1 1;
 				rel1 { relative: 0.0 1.0; to_x: "left_rect_padding"; to_y: "top_padding";}
 				rel2 { relative: 0.0 1.0; to_x: "left_rect_padding";}
@@ -221,7 +572,7 @@ collections {
 			 scale: 1; //allow scaling
 			 description { state: "default" 0.0;
 				min : 0 30;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 0 1;
 				rel1 { relative: 0.1 1.0; to_y: "right_rect_bottom_padding"; }
 				rel2 { relative: 0.4 1.0; to_y: "right_rect_bottom_padding"; }
@@ -241,7 +592,7 @@ collections {
 				   min: 0 0;
 				   align: 0.5 0;
 				  }
-				color : 0 0 0 255;
+				//color : 0 0 0 255;
 				rel1 { relative: 0.0 0.0; to: "left_text"; }
 				rel2 { relative: 1.0 1.0; to: "left_text"; }
 				align: 0.5 0;
@@ -252,7 +603,7 @@ collections {
 			 scale: 1; //allow scaling
 			 description { state: "default" 0.0;
 				min : 0 72;
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				fixed: 0 1;
 				rel1 { relative: 0.0 1.0; to: "left_text";}
 				rel2 { relative: 1.0 1.0; to: "right_text";}
@@ -272,7 +623,7 @@ collections {
 				   min: 0 0;
 				   align: 0.5 1.0;
 				  }
-				color : 128 128 128 255;
+				//color : 128 128 128 255;
 				rel1 { relative: 0.0 0.0; to: "bottom_text"; }
 				rel2 { relative: 1.0 1.0; to: "bottom_text"; }
 				align: 0.5 0.5;
@@ -288,7 +639,7 @@ collections {
 				max: 0 20;
 				rel1 { relative: 0.0 1.0; to_y: "bottom_label";}
 				rel2 { relative: 1.0 1.0; }
-				color: 0 0 0 0;
+				//color: 0 0 0 0;
 				align: 0.5 1.0;
 				}
 		  }
@@ -354,7 +705,7 @@ collections {
 					//rel1 { relative: 0.0 0.0; }  // can't setted!
 					rel2.relative: 1 0;
 					visible: 1;
-					color: 255 0 0 127;
+					//color: 255 0 0 127;
 					align: 0 0;
 				}
 			}
@@ -370,7 +721,7 @@ collections {
 					rel1 { relative: 0.0 1.0; to_y: "top_padding"; }
 					rel2 { relative: 1.0 1.0; to_y: "top_padding"; }
 					visible: 0;
-					//color: 0 255 0 127;
+					////color: 0 255 0 127;
 					align: 0 0;  // should set align!
 				}
 			}
@@ -452,7 +803,7 @@ collections {
 	               align: 0 0;
 	               rel1 { relative: 0.0 1.0; to_y: "area_1"; }
 	               rel2.to_y: "area_1";
-	               //color: 255 0 0 255;
+	               ////color: 255 0 0 255;
 	            }
 	      	}
 			
@@ -467,7 +818,7 @@ collections {
 					rel1 { relative: 0.0 1.0; to_y: "area_1_bottom_padding"; }
 					rel2 { relative: 1.0 1.0; to_y: "area_1_bottom_padding"; }
 					visible: 1;
-					color: 127 127 127 127;
+					//color: 127 127 127 127;
 					align: 0 0;
 				}
 			}
@@ -604,7 +955,7 @@ collections {
 					rel1 { relative: 0.0 1.0; to_y: "area_2"; }
 					rel2 { relative: 1.0 1.0; to_y: "area_2"; }
 					visible: 1;
-					color: 255 255 255 255;
+					//color: 255 255 255 255;
 					align: 0 0;
 				}
 			}
@@ -620,7 +971,7 @@ collections {
 					rel1 { relative: 0.0 1.0; to_y: "area_3"; }
 					rel2 { relative: 1.0 1.0; to_y: "area_3"; }
 					visible: 1;
-					color: 0 0 255 255;
+					//color: 0 0 255 255;
 					align: 0 0;
 				}
 			}
@@ -662,7 +1013,7 @@ collections {
 	               state: "default" 0.0;
 	               min : 0 2;
 	               rel1 { relative: 0.0 1.0; to_y: "area_4"; }
-	               color: 255 0 0 255;
+	               //color: 255 0 0 255;
 	               align: 0.5 1.0;
 	            }
 	  		}
@@ -680,7 +1031,7 @@ collections {
             scale:1;
             description {
                state: "default" 0.0;
-               color: 0 0 0 0;
+               //color: 0 0 0 0;
                rel1.relative: 0.0 0.0;
                rel2.relative: 1.0 1.0;
             }
@@ -757,15 +1108,10 @@ collections {
          }
       }
    }
-
-	group 
-	{
-		name: "set_contact_view";
-		
-		images {   
-			image: "noa_detail.png" COMP;
-			}
-		
+  
+   	group { 
+		name:"tvshows_layout";
+		data.item: "contents" "head_swallow device_gengrid pageno_entry";
 		parts {
 			part {
 				name: "bg";
@@ -776,157 +1122,680 @@ collections {
 					visible: 1;
 					rel1 { relative: 0.0 0.0;}
 					rel2 { relative: 1.0 1.0;}
-					color: 255 255 255 255;
+					color: LOCAL_TVSHOWS_LAYOUT_BG_COLOR_INC; //30 18 51 0
 				}
 			}
-			
-             part { 
-    		 	type: IMAGE;            
-    			description {               
-    				state: "default" 0;               
-    				//color: 255 255 255 255;               
-					rel1 { relative: 0.05 0.1; to: "bg";}
-					rel2 { relative: 0.25 0.4; to: "bg";}               
-    				image {                  
-    					normal: "noa_detail.png";               
-    					}            
-    				} //end description         
-    			} //end part	
-    			
 			/*For contact list */
 			part {
-				name: "entry";
+				name: "head_swallow";
+				type: RECT;
+				mouse_events: 0;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_TVSHOWS_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_TVSHOWS_LAYOUT_HEAD_RECT_SIZE;
+					rel1.to:"bg";
+					rel2.to:"bg";
+					align:0 0;
+					color: LOCAL_TVSHOWS_LAYOUT_HEAD_COLOR;
+				}
+			}
+			part{
+				name:"color_tag_text";
+				type:TEXT;
+				description{
+					state:"default" 0;
+					min:LOCAL_TVSHOWS_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					max:LOCAL_TVSHOWS_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					rel1.to:"head_swallow";
+					rel2.to:"head_swallow";
+					align: 0 0.2;
+					color: LOCAL_TVSHOWS_LAYOUT_TEXT_COLOR;
+					text{
+						text:"TV Shows";
+						font:"Arial Bold";
+						size:LOCAL_TVSHOWS_LAYOUT_HEAD_TEXT_SIZE;
+						align: 0.5 0.5;
+					}
+				}
+			}
+			part {
+				name: "whatsn_gengrid";
 				type: SWALLOW;
 				mouse_events: 1;
 				scale: 1;
 				description {
 					state: "default" 0.0;
 					align: 0.0 0.0;
-					rel1 { relative: 0.3 0.1; to: "bg";}
-					rel2 { relative: 1.0 0.4; to: "bg";}
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_TVSHOWS_LAYOUT_GENGRID_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_TVSHOWS_LAYOUT_GENGRID_REL2_OFFSET;}
+				}
+			}
+			part {
+				name: "recommend_info";
+				type: TEXT;
+				description {
+					align:0.5 1;
+					state: "default" 0;
+					color: LOCAL_TVSHOWS_LAYOUT_TEXT_COLOR;
+					min: LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_SIZE_MIN;
+					max: LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_SIZE_MAX;
+					rel1 { relative: 1.0 0; to: "bg"; offset: LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_REL2_OFFSET;}
+					text {												
+						ellipsis: 0;						
+						size: LOCAL_TVSHOWS_LAYOUT_RECOMM_INFO_TEXT_SIZE;
+						align:0 1 ;
+					}
 				}
 			}
 
 			part {
-				name: "button_area";
-				type: SWALLOW;
-				mouse_events: 1;
-				scale: 1;
+				name: "toolbar_dvid";
+				type: RECT;
 				description {
-					state: "default" 0.0;
-					align: 0.0 0.0;
-					rel1 { relative: 0.0 1.0; to: "entry";offset: 0 20;}
-					rel2 { relative: 1.0 1.0; to: "entry";offset: 0 100;}
+					align:0.0 1;
+					state: "default" 0;
+					min: 1 LOCAL_TVSHOWS_LAYOUT_TOOLBAR_DVID_HEIGHT;
+					rel1.relative: 0 1; 
+					rel1.to: "bg"; 
+					rel1.offset: 0 -20;
+					rel2 { relative: 1.0 1.0; to: "bg"; }
+					color: LOCAL_TVSHOWS_LAYOUT_BG_COLOR_INC; 
+					visible: 1;
 				}
 			}
-			
+
 			part {
-				name: "button_watch_now";
+				name: "toolbar_whatsn";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 0 0; 
+					rel1.to: "toolbar_dvid"; 
+					rel1.offset: 0 -86;
+					rel2.relative: 0 0; 
+					rel2.to: "toolbar_dvid"; 
+					rel2.offset: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text: "What's New";
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+			part {
+				name: "toolbar_mostp";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 1 0; 
+					rel1.to: "toolbar_whatsn";
+					rel2.relative: 1 1; 
+					rel2.to: "toolbar_whatsn"; 
+					rel2.offset: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text:"Most Popular";
+						font:"Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+			part {
+				name: "toolbar_geners";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 1 0; 
+					rel1.to: "toolbar_mostp"; 
+					rel2.relative: 1 1; 
+					rel2.to: "toolbar_mostp"; 
+					rel2.offset: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text:"Geners";
+						font:"Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_TVSHOWS_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+		}
+		/* end parts */		
+	}
+
+   	group { 
+		name:"movies_layout";
+		data.item: "contents" "head_swallow device_gengrid pageno_entry";
+		images {
+			image: "bg_tvshow.png" COMP;
+		}
+		parts {
+			part {
+				name: "bg";
+				mouse_events: 0;
+				type: IMAGE;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					//color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; //30 18 51 0
+					image {
+						normal: "bg_tvshow.png"; 
+					}
+				}
+			}
+			/*For contact list */
+			part {
+				name: "head_swallow";
+				type: RECT;
+				mouse_events: 0;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					rel1.to:"bg";
+					rel2.to:"bg";
+					align:0 0;
+					color: LOCAL_MOVIES_LAYOUT_HEAD_COLOR;
+				}
+			}
+			part{
+				name:"color_tag_text";
+				type:TEXT;
+				description{
+					state:"default" 0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					rel1.to:"head_swallow";
+					rel1.offset: LOCAL_MOVIES_LAYOUT_HEAD_TEXT_OFFSET;
+					rel2.to:"head_swallow";
+					align: 0 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					text{
+						text:"Movies";
+						font:"Arial Bold";
+						size:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_SIZE;
+						align: 0 0.5;
+					}
+				}
+			}
+			part {
+				name: "whatsn_gengrid";
 				type: SWALLOW;
 				mouse_events: 1;
 				scale: 1;
 				description {
 					state: "default" 0.0;
 					align: 0.0 0.0;
-					rel1 { relative: 0.0 0.0; to: "button_area";offset: 0 0;}
-					rel2 { relative: 0.3 1.0; to: "button_area";offset: 0 0;}
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL2_OFFSET;}
+				}
+			}
+			part {
+				name: "recommend_info";
+				type: TEXT;
+				description {
+					align:0.5 1;
+					state: "default" 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					min: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MIN;
+					max: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MAX;
+					rel1 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL2_OFFSET;}
+					text {												
+						ellipsis: 0;						
+						size: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_TEXT_SIZE;
+						align:0 1 ;
+					}
 				}
 			}
 
-    		part {
-    			name: "button_love";
-    			type: SWALLOW;
-    			mouse_events: 1;
-    			scale: 1;
-    			description {
-    				state: "default" 0.0;
-    				align: 0.0 0.0;
-    				rel1 { relative: 0.3 0.0; to: "button_area";offset: 0 0;}
-    				rel2 { relative: 0.4 1.0; to: "button_area";offset: 0 0;}
-    			}
-    		}
+			part {
+				name: "toolbar_dvid";
+				type: RECT;
+				description {
+					align:0.0 1;
+					state: "default" 0;
+					min: 1 LOCAL_MOVIES_LAYOUT_TOOLBAR_DVID_HEIGHT;
+					rel1.relative: 0 1; 
+					rel1.to: "bg"; 
+					rel1.offset: 0 -20;
+					rel2 { relative: 1.0 1.0; to: "bg"; }
+					color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; 
+					visible: 1;
+				}
+			}
 
-    		part {
-    			name: "button_good";
-    			type: SWALLOW;
-    			mouse_events: 1;
-    			scale: 1;
-    			description {
-    				state: "default" 0.0;
+			part {
+				name: "toolbar_whatsn";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 0 0; 
+					rel1.to: "toolbar_dvid"; 
+					rel1.offset: 0 -86;
+					rel2.relative: 0 0; 
+					rel2.to: "toolbar_dvid"; 
+					rel2.offset: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text: "What's New";
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+			part {
+				name: "toolbar_mostp";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 1 0; 
+					rel1.to: "toolbar_whatsn";
+					rel2.relative: 1 1; 
+					rel2.to: "toolbar_whatsn"; 
+					rel2.offset: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text:"Most Popular";
+						font:"Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+			part {
+				name: "toolbar_geners";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					state: "default" 0;
+					min: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					max: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_SIZE_MAX;
+					rel1.relative: 1 0; 
+					rel1.to: "toolbar_mostp"; 
+					rel2.relative: 1 1; 
+					rel2.to: "toolbar_mostp"; 
+					rel2.offset: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_WIDE 0;
+					text {
+						text:"Geners";
+						font:"Arial Bold";
+						ellipsis: 0;						
+						align: 0.5 0.5 ;
+						size: LOCAL_MOVIES_LAYOUT_TOOLBAR_BUTTON_TEXT_SIZE;
+					}
+				}
+			}
+		}
+		/* end parts */		
+	}
+
+   	group { 
+		name:"movies_whatsn_layout";
+		data.item: "contents" "head_swallow device_gengrid pageno_entry";
+		images {
+			image: "bg_tvshow.png" COMP;
+		}
+
+		parts {
+			part {
+				name: "bg";
+				mouse_events: 0;
+				type: IMAGE;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					//color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; //30 18 51 0
+					//color: 30 18 51 200;
+					image {
+						normal: "bg_tvshow.png"; 
+					}
+
+				}
+			}
+			/*For contact list */
+			part {
+				name: "head_before_swallow";
+				type: RECT;
+				mouse_events: 1;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					rel1.to:"bg";
+					rel2.to:"bg";
+					align:0 0;
+					color: LOCAL_MOVIES_LAYOUT_HEAD_COLOR;
+				}
+				
+			}
+
+			/*For contact list */
+			part {
+				name: "head_swallow";
+				type: RECT;
+				mouse_events: 0;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					rel1.relative: 0 0;
+					rel1.to:"bg";
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_HEAD_REL1_OFFSET;}
+					rel2 { relative: 0.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_HEAD_REL2_OFFSET;}
+					align:0 0;
+					color: LOCAL_MOVIES_LAYOUT_HEAD_SECOND_COLOR;
+				}
+			}
+
+			part{
+				name:"color_tag_text";
+				type:TEXT;
+				description{
+					state:"default" 0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					rel1.to:"head_swallow";
+					rel1.offset: LOCAL_MOVIES_LAYOUT_HEAD_TEXT_OFFSET;
+					rel2.to:"head_swallow";
+					align: 0.5 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					text{
+						text:"What's New";
+						font:"Arial Bold";
+						size:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_SIZE;
+						align: 0.5 0.5;
+					}
+				}
+			}
+			part {
+				name: "whatsn_gengrid";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.0 0.0;
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL2_OFFSET;}
+				}
+			}
+			part {
+				name: "recommend_info";
+				type: TEXT;
+				description {
+					align:0.5 1;
+					state: "default" 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					min: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MIN;
+					max: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MAX;
+					rel1 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL2_OFFSET;}
+					text {												
+						ellipsis: 0;						
+						size: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_TEXT_SIZE;
+						align:0 1 ;
+					}
+				}
+			}
+
+			part {
+				name: "toolbar_dvid";
+				type: RECT;
+				description {
+					align:0.0 1;
+					state: "default" 0;
+					min: 1 LOCAL_MOVIES_LAYOUT_TOOLBAR_DVID_HEIGHT;
+					rel1.relative: 0 1; 
+					rel1.to: "bg"; 
+					rel1.offset: 0 -20;
+					rel2 { relative: 1.0 1.0; to: "bg"; }
+					color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; 
+					visible: 1;
+				}
+			}
+			part {
+				name: "movie_info_detail";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
 					fixed: 1 1;
-    				align: 0.0 0.0;
-    				rel1 { relative: 0.4 0.0; to: "button_area";offset: 0 0;}
-    				rel2 { relative: 0.6 1.0; to: "button_area";offset: 0 0;}
-    			}
-    		}
-    
-    		part {
-    			name: "button_bad";
-    			type: SWALLOW;
-    			mouse_events: 1;
-    			scale: 1;
-    			description {
-    				state: "default" 0.0;
-					fixed: 1 1;
-    				align: 0.0 0.0;
-    				rel1 { relative: 0.6 0.0; to: "button_area";offset: 0 0;}
-    				rel2 { relative: 0.8 1.0; to: "button_area";offset: 0 0;}
-    			}
-    		}
-    
-    		part {
-    			name: "button_facebook";
-    			type: SWALLOW;
-    			mouse_events: 1;
-    			scale: 1;
-    			description {
-    				state: "default" 0.0;
-    				align: 0.0 0.0;
-    				rel1 { relative: 0.8 0.0; to: "button_area";offset: 0 0;}
-    				rel2 { relative: 0.9 1.0; to: "button_area";offset: 0 0;}
-    			}
-    		}
-    
-    		part {
-    			name: "button_twitter";
-    			type: SWALLOW;
-    			mouse_events: 1;
-    			scale: 1;
-    			description {
-    				state: "default" 0.0;
-    				align: 0.0 0.0;
-    				rel1 { relative: 0.9 0.0; to: "button_area";offset: 0 0;}
-    				rel2 { relative: 1.0 1.0; to: "button_area";offset: 0 0;}
-    			}
-    		}
-
+					state: "default" 0;
+					rel1.relative: 0 0; 
+					rel1.to: "toolbar_dvid"; 
+					rel1.offset: 0 LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_HEIGHT; // -50
+					rel2.relative: 1 0; 
+					rel2.to: "toolbar_dvid"; 
+					text {
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0 1;
+						size: LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_SIZE;  // 20
+					}
+				}
+			}
 			part {
-				name: "gengrid_group";
+				name: "movie_info_title";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					fixed: 1 1;
+					state: "default" 0;
+					rel1.relative: 0 0; 
+					rel1.to: "movie_info_detail"; 
+					rel1.offset: 0 LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_HEIGHT; // -100
+					rel2.relative: 1 0; 
+					rel2.to: "movie_info_detail"; 
+					text {
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0 1;
+						size: LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_SIZE;  // 50
+					}
+				}
+			}
+
+		}
+		/* end parts */		
+	}
+
+   	group { 
+		name:"movies_mostp_layout";
+		data.item: "contents" "head_swallow device_gengrid pageno_entry";
+		images {
+			image: "bg_tvshow.png" COMP;
+		}
+
+		parts {
+			part {
+				name: "bg";
+				mouse_events: 0;
+				type: IMAGE;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					//color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; //30 18 51 0
+					//color: 30 18 51 100;
+					image {
+						normal: "bg_tvshow.png"; 
+					}
+
+				}
+			}
+			/*For contact list */
+			part {
+				name: "head_before_swallow";
+				type: RECT;
+				mouse_events: 1;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+
+					rel1.to:"bg";
+					rel2.to:"bg";
+					align:0 0;
+					color: LOCAL_MOVIES_LAYOUT_HEAD_COLOR;
+				}
+				
+			}
+
+			/*For contact list */
+			part {
+				name: "head_swallow";
+				type: RECT;
+				mouse_events: 0;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_RECT_SIZE;
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_HEAD_REL1_OFFSET;}
+					rel2 { relative: 0.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_HEAD_REL2_OFFSET;}
+					align:0 0;
+					color: LOCAL_MOVIES_LAYOUT_HEAD_SECOND_COLOR;
+				}
+			}
+
+			part{
+				name:"color_tag_text";
+				type:TEXT;
+				description{
+					state:"default" 0;
+					min:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					max:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_RECT_SIZE;
+					rel1.to:"head_swallow";
+					rel1.offset: LOCAL_MOVIES_LAYOUT_HEAD_TEXT_OFFSET;
+					rel2.to:"head_swallow";
+					align: 0.5 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					text{
+						text:"Most Popular";
+						font:"Arial Bold";
+						size:LOCAL_MOVIES_LAYOUT_HEAD_TEXT_SIZE;
+						align: 0.5 0.5;
+					}
+				}
+			}
+			part {
+				name: "whatsn_gengrid";
 				type: SWALLOW;
 				mouse_events: 1;
 				scale: 1;
 				description {
 					state: "default" 0.0;
-					align: 0.0 0.5;
-					rel1 { relative: 0.0 0.6; to: "bg";offset: 0 0;}
-					rel2 { relative: 1.0 1.0; to: "bg";offset: 0 0;}
+					align: 0.0 0.0;
+					rel1 { relative: 0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_GENGRID_REL2_OFFSET;}
+				}
+			}
+			part {
+				name: "recommend_info";
+				type: TEXT;
+				description {
+					align:0.5 1;
+					state: "default" 0;
+					color: LOCAL_MOVIES_LAYOUT_TEXT_COLOR;
+					min: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MIN;
+					max: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_SIZE_MAX;
+					rel1 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL1_OFFSET;}
+					rel2 { relative: 1.0 0; to: "bg"; offset: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_REL2_OFFSET;}
+					text {												
+						ellipsis: 0;						
+						size: LOCAL_MOVIES_LAYOUT_RECOMM_INFO_TEXT_SIZE;
+						align:0 1 ;
+					}
 				}
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-			
-		} /* end parts */
+			part {
+				name: "toolbar_dvid";
+				type: RECT;
+				description {
+					align:0.0 1;
+					state: "default" 0;
+					min: 1 LOCAL_MOVIES_LAYOUT_TOOLBAR_DVID_HEIGHT;
+					rel1.relative: 0 1; 
+					rel1.to: "bg"; 
+					rel1.offset: 0 -20;
+					rel2 { relative: 1.0 1.0; to: "bg"; }
+					color: LOCAL_MOVIES_LAYOUT_BG_COLOR_INC; 
+					visible: 1;
+				}
+			}
+			part {
+				name: "movie_info_detail";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					fixed: 1 1;
+					state: "default" 0;
+					rel1.relative: 0 0; 
+					rel1.to: "toolbar_dvid"; 
+					rel1.offset: 0 LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_HEIGHT; // -50
+					rel2.relative: 1 0; 
+					rel2.to: "toolbar_dvid"; 
+					text {
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0 1;
+						size: LOCAL_MOVIES_LAYOUT_WHATSN_INFO_DETAIL_TEXT_SIZE;  // 20
+					}
+				}
+			}
+			part {
+				name: "movie_info_title";
+				type: TEXT;
+				description {
+					align:0.5 0.5;
+					fixed: 1 1;
+					state: "default" 0;
+					rel1.relative: 0 0; 
+					rel1.to: "movie_info_detail"; 
+					rel1.offset: 0 LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_HEIGHT; // -100
+					rel2.relative: 1 0; 
+					rel2.to: "movie_info_detail"; 
+					text {
+						font: "Arial Bold";
+						ellipsis: 0;						
+						align: 0 1;
+						size: LOCAL_MOVIES_LAYOUT_WHATSN_INFO_TITLE_TEXT_SIZE;  // 50
+					}
+				}
+			}
+		}
+		/* end parts */		
 	}
 }
-
-
+	

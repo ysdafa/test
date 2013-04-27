@@ -16,32 +16,21 @@
 #include <sched.h>
 #include <pthread.h>
 
-#include "noa.h"
+#include "noadetail.h"
 #include "noamain.h"
 #include "gengrid.h"
 #include "clock_fwk_util.h"
 
-#define APP_LIST 					"Home Panel"
-#define APP_LIST_MAX_COUNT 		20
-#define APP_CANCEL_LIST_COUNT 	7
-#define APP_DIR						"/usr/apps/com.samsung.noa"
-#define LOCALE_DIR 				APP_DIR"/res/locale"
-#define APP_ABOUT 					"About noa"
-#define EDJ_DIR 					APP_DIR"/res/edje"
-#define VIEW_EDJ 					EDJ_DIR"/noa.edj"
-#define NUM_OF_ITEMS 				7  //setting interface item number
-#define VIDEO_FILE_LIST 			"Movies"
-#define ICON_DIR 					PREFIX"/res/images"
-#define VIEW_BUTTON_EDJ EDJ_DIR"/create_view_button.edj"
-#define VIEW_NAVIFRAME_EDJ EDJ_DIR"/create_view_naviframe.edj"
-
 /* Global variables */
 static Elm_Genlist_Item_Class itc_newview, itc, itc2, nfc_itc, video_itc;
+static Elm_Gengrid_Item_Class *photo_gic = NULL;
+static Testitem ti[IMAGE_MAX*25];
+
 static unsigned int REFREASH_FRAME = 1;
 static unsigned int NFC_INSTANCE = 5;
 bool WIFI_STATE = false;
 int flag_network = 0;
-void create_app_list_view(void *data);
+
 demo_data_s *gl_ugd = NULL;
 
 char videoNameList[APP_LIST_MAX_COUNT][50] = {
@@ -76,6 +65,7 @@ static char *slider_itemlist[] = {
 };
 
 /* declare function*/
+void create_app_list_view(void *data);
 static void _create_whats_new_gengrid(void *data);
 static void _create_most_populer_gengrid(void *data);
 static void _create_geners_gengrid(void *data);
@@ -241,7 +231,7 @@ void _create_whats_new_gengrid(void *data)
 	    printf(  "Incorrect parameter(NULL)");
         return;
 	}
-	gengrid_create_view( data, "default_gridtext");
+	gengrid_create_view( data, "noa_default_gridtext");
 	printf(	 "Exit _create_whats_new_gengrid\n");		
 }
 
@@ -310,8 +300,7 @@ void exit_process(void *data)
 
 static Evas_Object *create_preview_genlist(void *data)
 {
-	demo_data_s *para = (demo_data_s *) data;
-	Evas_Object *genlist;
+	Evas_Object *genlist = NULL, *layout = NULL;
 	int i = 0;
 	int j = 0;
 	bool flag = true;
@@ -322,9 +311,14 @@ static Evas_Object *create_preview_genlist(void *data)
 	itc_newview.func.state_get = NULL;
 	itc_newview.func.del = NULL;
 
-	genlist = elm_genlist_add(para->naviframe);
+	//demo_data_s *para = (demo_data_s *) data;
+	//genlist = elm_genlist_add(para->naviframe);
+	
+	layout = (Evas_Object *) data;
+	genlist = elm_genlist_add(layout);
 
 	/* add the video list */
+/*	
 	Elm_Object_Item* ret = elm_genlist_item_append(	genlist, 
 														&itc_newview, 
 														(void *)APP_LIST_MAX_COUNT, 
@@ -332,15 +326,50 @@ static Evas_Object *create_preview_genlist(void *data)
 														ELM_GENLIST_ITEM_NONE, 
 														(Evas_Smart_Cb)_create_video_list, 
 														(void *)para );
+*/
+	Elm_Object_Item* ret = elm_genlist_item_append(	genlist, 
+														&itc_newview, 
+														(void *)APP_LIST_MAX_COUNT, 
+														NULL, 
+														ELM_GENLIST_ITEM_NONE, 
+														(Evas_Smart_Cb)_create_video_list, 
+														(void *)layout );
 
 	elm_genlist_mode_set( genlist, ELM_LIST_LIMIT );
 	return genlist;
 }
 
+/* icon fetching callback */
+static Evas_Object *
+_photo_grid_content_get(void        *data,
+               Evas_Object *obj,
+               const char  *part)
+{
+	const Testitem *it = data;
+
+	if (!strcmp(part, "elm.swallow.icon"))
+	{
+		Evas_Object *icon = elm_image_add(obj);
+		char buf[PATH_MAX];
+
+	    snprintf(buf, sizeof(buf), "%s",it->path);
+		//printf("_photo_grid_content_get - %s\n",buf);
+
+		elm_image_file_set(icon, buf, NULL);
+		elm_image_aspect_fixed_set(icon, EINA_TRUE);
+		evas_object_show(icon);
+		return icon;
+	}
+	else if (!strcmp(part, "elm.swallow.end"))
+	{
+		return NULL;
+	}
+}
+
 void create_app_list_view(void *data)
 {
 	demo_data_s *para =(demo_data_s *)data;
-	Evas_Object *back_btn =NULL, *bghead = NULL, *tvshow_bt = NULL;
+	Evas_Object *back_btn =NULL, *bghead = NULL, *tvshow_bt = NULL, *tvshow_layout = NULL;
 	Elm_Object_Item *naviframe_item = NULL;
 
 	/*Error prevent*/
@@ -350,87 +379,233 @@ void create_app_list_view(void *data)
         return;
 	}
 
-	/*create the back button*/
-	back_btn = elm_button_add(para->naviframe);
-	elm_object_style_set(back_btn, "naviframe/back_btn/default");
-	evas_object_smart_callback_add(back_btn, "clicked", (void *)exit_process, para);
-	elm_object_focus_allow_set(back_btn,EINA_FALSE);
-	evas_object_show(back_btn);
+	//add tv show layout
+	tvshow_layout = create_layout(para->naviframe, "movies_layout" );
+	if( NULL == tvshow_layout )
+	{
+		printf( "debug: create layout failed, delete objects and return directly." );
+		exit_process( para );
+		return;
+	}
 
-	/* Appends a theme extension to the list of extenstions */
-	printf("edj file: %s\n", VIEW_BUTTON_EDJ);
-	printf("edj file: %s\n", VIEW_NAVIFRAME_EDJ);
-	elm_theme_extension_add(NULL, VIEW_BUTTON_EDJ );
-	elm_theme_extension_add(NULL, VIEW_NAVIFRAME_EDJ );
+	//create gengrid
+	printf( "create what's_view, most popular, geners buttons.\n");
 
-	//create preview genlist
-	para->genlist = create_preview_genlist(para);
-	elm_object_style_set(para->genlist, "dialogue");
-	evas_object_show(para->genlist);
+	Evas_Object *layout_obj = elm_layout_edje_get(tvshow_layout);
+	Evas_Object* whatsnew_btn = edje_object_part_object_get (layout_obj, "toolbar_whatsn"); //??edc??part object
+	evas_object_event_callback_add(whatsnew_btn, EVAS_CALLBACK_MOUSE_DOWN, _create_whats_new_gengrid, para);
 
-	naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, back_btn, NULL, para->genlist, "create_view");
+	Evas_Object* mostp_btn = edje_object_part_object_get (layout_obj, "toolbar_mostp"); 
+	//evas_object_repeat_events_set  ( mostp_btn,EINA_FALSE );
+	evas_object_event_callback_add(mostp_btn, EVAS_CALLBACK_MOUSE_DOWN, _create_most_populer_gengrid, para);
+	
+	Evas_Object* geners_btn = edje_object_part_object_get (layout_obj, "toolbar_geners"); //??edc??part object
+	//evas_object_event_callback_add(geners_btn, EVAS_CALLBACK_MOUSE_DOWN, _create_geners_gengrid, para);
+
+/*
+	//Add three buttons
+	para->whatsnew_button = elm_button_add(tvshow_layout);
+	// "naviframe/toolbar/default"
+	elm_object_style_set(para->whatsnew_button, "create_view/style1");
+	elm_object_text_set(para->whatsnew_button, "What's New");
+	para->eContentType = WHATSNEW_TYPE;
+	evas_object_smart_callback_add(para->whatsnew_button, "clicked",(Evas_Smart_Cb)_create_whats_new_gengrid, (void*) para);
+	elm_object_disabled_set(para->whatsnew_button, EINA_FALSE);
+	evas_object_color_set(para->whatsnew_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button1 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button1", para->whatsnew_button);
+	printf( "exit create_app_list_view1111\n");
+
+	para->mostpopular_button = elm_button_add(tvshow_layout);
+	elm_object_style_set(para->mostpopular_button, "create_view/style1");
+	elm_object_text_set(para->mostpopular_button, "Most Popular");
+	para->eContentType = MOSTPOPULAR_TYPE;
+	evas_object_smart_callback_add(para->mostpopular_button, "clicked",(Evas_Smart_Cb)_create_most_populer_gengrid, (void*) para);
+	elm_object_disabled_set(para->mostpopular_button, EINA_FALSE);
+	evas_object_color_set(para->mostpopular_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button2 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button2", para->mostpopular_button);
+	printf( "exit create_app_list_view2222\n");
+
+	//third button is defined in our own edc
+	para->genres_button = elm_button_add(tvshow_layout);
+	elm_object_style_set(para->genres_button, "create_view/style1");
+	elm_object_text_set(para->genres_button, "Genres");
+	para->eContentType = GENRES_TYPE;
+	evas_object_smart_callback_add(para->genres_button, "clicked",(Evas_Smart_Cb)_create_geners_gengrid, (void*) para);
+	elm_object_disabled_set(para->genres_button, EINA_FALSE);
+	evas_object_color_set(para->genres_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button3 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button3", para->genres_button);
+	printf( "exit create_app_list_view3333\n");	
+*/
+
+	Evas_Object *photo_grid = elm_gengrid_add(tvshow_layout);
+	evas_object_size_hint_weight_set(photo_grid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(photo_grid, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_gengrid_scroller_policy_set(photo_grid,ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_OFF);
+	
+	double scale = elm_config_scale_get();
+	double w = (int)(MOVIE_ITEM_WIDE * scale); //177 as per UX ver 1.7.
+	double h = (int)(MOVIE_ITEM_HEIGHT* scale); //64 for textas per UX ver 1.7.
+	elm_gengrid_item_size_set(photo_grid, w, h);
+	elm_gengrid_align_set(photo_grid, 0.0, 0.0);
+	elm_gengrid_horizontal_set(photo_grid, EINA_TRUE);
+	elm_scroller_bounce_set(photo_grid, EINA_FALSE, EINA_TRUE);
+	elm_gengrid_multi_select_set(photo_grid, EINA_TRUE);
+	
+	elm_object_part_content_set(tvshow_layout, "whatsn_gengrid", photo_grid);
+
+	//naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, back_btn, NULL, para->genlist, "empty");
+	//set auto push to false,to avoid creating default prev_btn button
+	elm_naviframe_prev_btn_auto_pushed_set( para->naviframe, EINA_FALSE );
+	naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, NULL, NULL, tvshow_layout, "empty");
+	elm_naviframe_item_title_visible_set(naviframe_item, EINA_FALSE);
+
 	if(naviframe_item == NULL)
 	{
 		printf( "create_app_list_view, push failed\n");
 		return;
 	}
 	
-	printf( "create other what's_view buttons.\n");
+	if(!photo_gic)
+	{
+		photo_gic = elm_gengrid_item_class_new();
+		photo_gic->item_style = "default_grid";
+		photo_gic->func.text_get = NULL;
+		photo_gic->func.content_get = _photo_grid_content_get;
+		photo_gic->func.state_get = NULL;
+		photo_gic->func.del = NULL;
+	}
+	char *buf[100];
+	int i, j, n;
+	for (i = 0; i < IMAGE_MAX; i++) {
+		n = i;
+		snprintf(buf, sizeof(buf), "%s/%d.jpg", ICON_DIR, i+1);
+		ti[n].index = i;
+		ti[n].path = eina_stringshare_add(buf);
+		//ti[n].item = elm_gengrid_item_append(gengrid, gic, &(ti[n]), _item_selected, &(ti[i]));
+		ti[n].item = elm_gengrid_item_append(photo_grid, photo_gic, &(ti[n]), NULL, NULL);
+		ti[n].checked = EINA_FALSE;
+	}
+	evas_object_show(photo_grid);	
 
-	//for colortag
-	//add for "elm.swallow.title"
-	tvshow_bt = elm_button_add(para->naviframe);
-	elm_object_style_set(tvshow_bt, "create_view/styletv");
+	printf( "exit create_app_list_view \n"); 
+}
+
+void create_app_list_view_2(void *data)
+{
+	demo_data_s *para =(demo_data_s *)data;
+	Evas_Object *back_btn =NULL, *bghead = NULL, *tvshow_bt = NULL, *tvshow_layout = NULL;
+	Elm_Object_Item *naviframe_item = NULL;
+
+	/*Error prevent*/
+	if(para == NULL)
+	{
+	    printf(  "Incorrect parameter(NULL)");
+        return;
+	}
+
+	printf("edj file: %s\n", VIEW_BUTTON_EDJ);
+	printf("edj file: %s\n", VIEW_NAVIFRAME_EDJ);
+	elm_theme_extension_add(NULL, VIEW_BUTTON_EDJ );
+	elm_theme_extension_add(NULL, VIEW_NAVIFRAME_EDJ );
+
+	//add tv show layout
+	tvshow_layout = create_layout(para->naviframe, "tvshows_layout" );
+	if( NULL == tvshow_layout )
+	{
+		printf( "debug: create layout failed, delete objects and return directly." );
+		exit_process( para );
+		return;
+	}
+	//create preview genlist
+	//para->genlist = create_preview_genlist(para);
+	para->genlist = create_preview_genlist(tvshow_layout);
+	elm_object_style_set(para->genlist, "dialogue");
+	evas_object_show(para->genlist);
+	// set gengrid as elm.swallow.content of layout
+	//elm_object_part_content_set(tvshow_layout, "elm.swallow.content", para->genlist);
+
+	//create the back button
+	back_btn = elm_button_add(tvshow_layout);
+	elm_object_style_set(back_btn, "naviframe/back_btn/default");
+	evas_object_smart_callback_add(back_btn, "clicked", (void *)exit_process, para);
+	elm_object_focus_allow_set(back_btn,EINA_FALSE);
+	evas_object_color_set(back_btn, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	evas_object_show(back_btn);
+	// set gengrid as elm.swallow.content of layout
+	elm_object_part_content_set(tvshow_layout, "elm.swallow.prev_btn", back_btn);
+	
+	//add for "elm.head"
+	tvshow_bt = elm_button_add(tvshow_layout);
+	elm_object_style_set(tvshow_bt, "naviframe/toolbar/default");
 	elm_object_text_set(tvshow_bt, "TV Shows");
-	//evas_object_smart_callback_add(para->whatsnew_button, "clicked",(Evas_Smart_Cb)_create_whats_new_gengrid, (void*) para);
 	elm_object_disabled_set(tvshow_bt, EINA_FALSE);
-	evas_object_color_set(tvshow_bt, BACKGROUND_RED + 20, BACKGROUND_GREEN, BACKGROUND_BLUE + 20, 255);
-	//elm_bg_file_set(tvshow_bt, "images/11_raw.jpg", NULL);
-	// set button as content of naviframe
-	elm_object_item_part_content_set(naviframe_item, "elm.swallow.title", tvshow_bt );
-	evas_object_show(tvshow_bt);	
+	evas_object_color_set(tvshow_bt, HEAD_BACKGROUND_RED, HEAD_BACKGROUND_GREEN, HEAD_BACKGROUND_BLUE, 255);
+	evas_object_show(tvshow_bt);
+	// set button as of elm.head.left layout
+	elm_object_part_content_set(tvshow_layout, "elm.head.left", tvshow_bt );
 
-	bghead = elm_bg_add(para->naviframe);
+	bghead = elm_bg_add(tvshow_layout);
 	evas_object_size_hint_weight_set(bghead, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	//set bg color purple
 	elm_bg_color_set(bghead, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE);
-	// set button as content of naviframe
-	elm_object_item_part_content_set(naviframe_item, "elm.swallow.title2", bghead);
+	// set button as elm.head.left of layout
+	elm_object_part_content_set(tvshow_layout, "elm.head.right", bghead);
 	evas_object_show(bghead);	
-	
+
+	printf( "create other what's_view buttons.\n");
 	//Add three buttons
-	para->whatsnew_button = elm_button_add(para->naviframe);
-	elm_object_style_set(para->whatsnew_button, "naviframe/toolbar/default");
+	para->whatsnew_button = elm_button_add(tvshow_layout);
+	// "naviframe/toolbar/default"
+	elm_object_style_set(para->whatsnew_button, "create_view/style1");
 	elm_object_text_set(para->whatsnew_button, "What's New");
 	para->eContentType = WHATSNEW_TYPE;
 	evas_object_smart_callback_add(para->whatsnew_button, "clicked",(Evas_Smart_Cb)_create_whats_new_gengrid, (void*) para);
 	elm_object_disabled_set(para->whatsnew_button, EINA_FALSE);
-	// set button as content of naviframe
-	elm_object_item_part_content_set(naviframe_item, "toolbar_button1", para->whatsnew_button);
+	evas_object_color_set(para->whatsnew_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button1 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button1", para->whatsnew_button);
 	printf( "exit create_app_list_view1111\n");
 
-	para->whatsnew_button = elm_button_add(para->naviframe);
-	elm_object_style_set(para->whatsnew_button, "naviframe/toolbar/default");
-	elm_object_text_set(para->whatsnew_button, "Most Popular");
+	para->mostpopular_button = elm_button_add(tvshow_layout);
+	elm_object_style_set(para->mostpopular_button, "create_view/style1");
+	elm_object_text_set(para->mostpopular_button, "Most Popular");
 	para->eContentType = MOSTPOPULAR_TYPE;
-	evas_object_smart_callback_add(para->whatsnew_button, "clicked",(Evas_Smart_Cb)_create_most_populer_gengrid, (void*) para);
-	elm_object_disabled_set(para->whatsnew_button, EINA_FALSE);
-	// set button as content of naviframe
-	elm_object_item_part_content_set(naviframe_item, "toolbar_button2", para->whatsnew_button);
+	evas_object_smart_callback_add(para->mostpopular_button, "clicked",(Evas_Smart_Cb)_create_most_populer_gengrid, (void*) para);
+	elm_object_disabled_set(para->mostpopular_button, EINA_FALSE);
+	evas_object_color_set(para->mostpopular_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button2 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button2", para->mostpopular_button);
 	printf( "exit create_app_list_view2222\n");
 
 	//third button is defined in our own edc
-	para->genres_button = elm_button_add(para->naviframe);
-	elm_object_style_set(para->genres_button, "naviframe/toolbar/default");
+	para->genres_button = elm_button_add(tvshow_layout);
+	elm_object_style_set(para->genres_button, "create_view/style1");
 	elm_object_text_set(para->genres_button, "Genres");
 	para->eContentType = GENRES_TYPE;
 	evas_object_smart_callback_add(para->genres_button, "clicked",(Evas_Smart_Cb)_create_geners_gengrid, (void*) para);
 	elm_object_disabled_set(para->genres_button, EINA_FALSE);
-	// set button as content of naviframe
-	elm_object_item_part_content_set(naviframe_item, "toolbar_button3", para->genres_button);
+	evas_object_color_set(para->genres_button, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set button as toolbar_button3 of layout
+	elm_object_part_content_set(tvshow_layout, "toolbar_button3", para->genres_button);
 	printf( "exit create_app_list_view3333\n");	
 
+	//naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, back_btn, NULL, para->genlist, "empty");
+	//set auto push to false,to avoid creating default prev_btn button
+	elm_naviframe_prev_btn_auto_pushed_set( para->naviframe, EINA_FALSE );
+	naviframe_item = elm_naviframe_item_push(para->naviframe, NULL, NULL, NULL, tvshow_layout, "empty");
+	if(naviframe_item == NULL)
+	{
+		printf( "create_app_list_view, push failed\n");
+		return;
+	}
+	
+
+	printf( "exit create_app_list_view \n"); 
 }
+
 
 /**
 * This function will be called when enter the app .

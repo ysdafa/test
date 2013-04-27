@@ -23,10 +23,6 @@
 #define THUMB_IMAGE_WIDTH 354   //Wide is 354 pix
 #define THUMB_IMAGE_HEIGHT 308  //Heigt is 308 pix
 
-#define BACKGROUND_RED 30
-#define BACKGROUND_GREEN 0
-#define BACKGROUND_BLUE 34
-
 void gengrid_cb(void *data, Evas_Object *obj, void *event_info);
 void gengrid_default_cb(void *data, Evas_Object *obj, void *event_info);
 void gengrid_gridtext_cb(void *data, Evas_Object *obj, void *event_info);

@@ -15,17 +15,13 @@
  *
  */
 
-#include "noa.h"
+#include "noadetail.h"
 #include "elmdemo_util.h"
 #include "gengrid.h"
 
 #define IMAGE_MAX 20
 #define VIEW_MODE 0
 #define EDIT_MODE 1
-
-#define ICON_DIR "images"
-
-
 
 static int mode;
 static int total_count;
@@ -38,7 +34,16 @@ static Elm_Gengrid_Item_Class *gic;
 static Testitem ti[IMAGE_MAX*25];
 
 static Evas_Object *gengrid = NULL;
-static Elm_Object_Item *naviframe_item = NULL;
+
+static const char entry_input_text_a[] = {
+	"English is a application as a server, used to split screen display. "
+};
+static const char entry_input_text_b[] = {
+	"User can select the application from the running application list. "
+};
+static const char entry_input_text_c[] = {
+	"Then open the English application, the screen will be display in the client."
+};
 
 static void
 grid_moved(void *data, Evas_Object *obj, void *event_info)
@@ -132,18 +137,29 @@ grid_content_get(void *data, Evas_Object *obj, const char *part)
 	return NULL;
 }
 
+static 
+Eina_Bool DisplayPhotoInfo( void* data )
+{
+	Testitem* ti = (Testitem*)data;
+	if ( NULL == ti )
+	{
+		printf("DisplayPhotoInfo: data is NULL\n");
+		return EINA_FALSE;
+	}
+	printf("DisplayPhotoInfo: %s \n", ti->path);
+/*
+	char strbuf[256] = {0};
+	snprintf( strbuf, 256, "%d/25", ti->mode + 1 );
+	elm_object_part_text_set( gl_ugd->genlist, "pageno_entry", strbuf );
+	snprintf( strbuf, 256, "Title:%s | Created:%s | Format:%s | Size:%s", ti->strFileName, ti->strFileTime, ti->strFileFmt, ti->strFileSize );
+	elm_object_part_text_set( gl_ugd->genlist, "Title_entry", strbuf );
+*/
+}
+
 static void
 _show_selected_items(Testitem *ti)
 {
-	/*const Eina_List* list = elm_gengrid_selected_items_get(grid);
-	const Eina_List* l = NULL;
-	Elm_Object_Item *recv = NULL;
-	printf("--------------------------\nSelected Items :");
-	EINA_LIST_FOREACH(list, l, recv) {
-		Testitem *ti = (Testitem *)elm_object_item_data_get(recv);
-		printf("%d ",ti->index);
-	}
-	printf("\n--------------------------\n");*/
+	DisplayPhotoInfo( (void*)ti );
 }
 
 static void
@@ -162,12 +178,12 @@ static void
 _create_gengrid (void *data)
 {
 	printf( "Entry _create_gengrid\n" );
-	demo_data_s *ad = (demo_data_s *)data;
+	Evas_Object *layout = (Evas_Object*)data;
 	int i, j, n, w, h;
 	char buf[PATH_MAX];
 	char imagename[PATH_MAX];
 
-	gengrid = elm_gengrid_add(ad->naviframe);
+	gengrid = elm_gengrid_add(layout);
 	evas_object_size_hint_weight_set(gengrid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(gengrid, EVAS_HINT_FILL, EVAS_HINT_FILL);
 
@@ -177,8 +193,8 @@ _create_gengrid (void *data)
 	evas_object_resize(gengrid, w, THUMB_IMAGE_HEIGHT );	
 
 	double scale = elm_config_scale_get();
-	w = (int)THUMB_IMAGE_WIDTH * scale; 
-	h = (int)THUMB_IMAGE_HEIGHT * scale;
+	w = (int)MOVIE_ITEM_WIDE * scale; 
+	h = (int)MOVIE_ITEM_HEIGHT * scale;
 	printf( "item size are w -> %d, h -> %d \n", w, h );
 	elm_gengrid_item_size_set(gengrid, w, h);
 	
@@ -326,43 +342,38 @@ _edit_btn_cb(void *data, Evas_Object *obj, void *event_info)
 	_check_select_all();
 }
 
+static 
+void _click_back_func(void *data, Evas *e, Evas_Object *obj, void *event_info)
+{
+	printf( "Entry gridtext _click_back_func\n");
+
+	demo_data_s *ugd = (demo_data_s *)data;
+	Evas_Object *nf = ugd->naviframe;
+	elm_naviframe_item_pop(nf);
+	evas_object_event_callback_del(obj, EVAS_CALLBACK_MOUSE_DOWN, _click_back_func);
+
+	// delete gengrid
+	if( gengrid)
+	{
+		printf( "debug: clear gengrid items \n" );
+		elm_gengrid_clear(gengrid);
+		evas_object_del(gengrid);
+		gengrid = NULL;
+	}
+
+	printf( "Exit gridtext _click_back_func\n");
+}
+
+
 static void
 _back_btn_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	printf( "Entry default grid _back_btn_cb\n");
 
-/*	
-	if(edit_btn)
+	demo_data_s *ugd = (demo_data_s *)data;
+	if( ugd )
 	{
-		evas_object_del(edit_btn);
-		edit_btn = NULL;
-	}
-	if( del_btn )
-	{
-		evas_object_del(del_btn);
-		del_btn = NULL;
-	}
-
-	if( select_all_layout )
-	{
-		elm_box_unpack(box, select_all_layout);
-		evas_object_del(select_all_layout);
-		select_all_layout = NULL;
-	}
-	if(select_all_checkbox)
-	{
-		evas_object_del(select_all_checkbox);
-		select_all_checkbox = NULL;
-	}
-
-*/	
-
-	// delete box
-	if( NULL != box)
-	{
-		printf( "debug: clear box in default \n" );
-		evas_object_del(box);
-		box = NULL;
+		elm_naviframe_item_pop(ugd->naviframe);
 	}
 
 	// delete gengrid
@@ -373,34 +384,9 @@ _back_btn_cb(void *data, Evas_Object *obj, void *event_info)
 		//delete object
 		evas_object_del(gengrid);
 		gengrid = NULL;
-		// free gic cause coredump ???
-		//elm_gengrid_item_class_free(gic);
 	}
 
-	demo_data_s *ugd = (demo_data_s *)data;
-	if( ugd && naviframe_item)
-	{
-		//elm_naviframe_item_pop(ugd->naviframe);
-		// delete naviframe_item_mostpo
-		elm_object_item_del( naviframe_item);
-		naviframe_item = NULL;	
-	}
-	
-/*
-	demo_data_s *ugd = (demo_data_s *)data;
-	//promote current Elm_Object_Item to top
-//	if( ugd && ugd->naviframe_item_mostpo )
-	if( ugd->naviframe_item_mostpo )
-	{
-		printf( "debug: pop top item from naviframe \n" );
-//		elm_naviframe_item_promote( ugd->naviframe_item_mostpo );
-		elm_naviframe_item_pop(ugd->naviframe);
-		// delete naviframe_item_mostpo
-		elm_object_item_del(ugd->naviframe_item_mostpo);
-		ugd->naviframe_item_mostpo = NULL;	
-	}
-*/
-	printf( "Eixt _back_btn_cb\n");
+	printf( "Eixt default _back_btn_cb\n");
 }
 
 void gengrid_default_release( void* data )
@@ -418,44 +404,44 @@ gengrid_default_cb(void *data, Evas_Object *obj, void *event_info)
 		printf( "Entry gengrid default already existed.\n" );
 		return;
 	}
-	demo_data_s *ad;
-	Evas_Object *back_btn;
-	Elm_Object_Item *it = NULL;
+	demo_data_s *para;
+	Evas_Object *back_btn = NULL, *mostp_layout = NULL;
+	Elm_Object_Item *grid_it = NULL;
+	Elm_Object_Item *naviframe_item = NULL;
 
-	ad = (demo_data_s *)data;
-	if (ad == NULL) return;
-
+	para = (demo_data_s *)data;
+	if (para == NULL) return;
 	mode = VIEW_MODE;
 
-	_create_gengrid(ad);
-	it = elm_gengrid_last_item_get(gengrid);
-//	elm_gengrid_item_show(it, ELM_GENGRID_ITEM_SCROLLTO_IN);
-	elm_gengrid_item_show(it, ELM_GENGRID_ITEM_SCROLLTO_TOP);
-
-	box = elm_box_add(ad->naviframe);
-	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_show(box);
-	elm_box_pack_end(box, gengrid);
+	//add tv most polular layout
+	mostp_layout = create_layout(para->naviframe, "movies_mostp_layout" );
+	if( NULL == mostp_layout )
+	{
+		printf( "debug: create mostp_layout failed, delete objects and return directly." );
+		_back_btn_cb( para, NULL, NULL );
+		return;
+	}
+	
+	_create_gengrid(mostp_layout);
+	
+	grid_it = elm_gengrid_last_item_get(gengrid);
+	elm_gengrid_item_show(grid_it, ELM_GENGRID_ITEM_SCROLLTO_TOP);
+	elm_object_part_content_set(mostp_layout, "whatsn_gengrid", gengrid);
 	evas_object_show(gengrid);
+	
+	printf( "debug: create back icon.\n" );
+	Evas_Object *layout_obj = elm_layout_edje_get(mostp_layout);
+	Evas_Object* head_img = edje_object_part_object_get (layout_obj, "head_before_swallow");  //??edc??part object
+	evas_object_event_callback_add(head_img, EVAS_CALLBACK_MOUSE_DOWN, _click_back_func, para); //??????
 
-	naviframe_item = elm_naviframe_item_push (ad->naviframe, _("Default") , NULL, NULL, box, NULL);
+	elm_naviframe_prev_btn_auto_pushed_set( para->naviframe, EINA_FALSE );
+	naviframe_item = elm_naviframe_item_push (para->naviframe, NULL, NULL, NULL, mostp_layout, NULL);
+	elm_naviframe_item_title_visible_set(naviframe_item, EINA_FALSE);
 	if( NULL == naviframe_item )
 	{
 		printf( "debug: elm_naviframe_item_push failed, delete objects and return directly." );
-		_back_btn_cb( ad, NULL, NULL );
+		_back_btn_cb( para, NULL, NULL );
 		return;
 	}
-
-/*	edit_btn = elm_button_add(ad->naviframe);
-	evas_object_smart_callback_add(edit_btn, "clicked", _edit_btn_cb, navi_it);
-	elm_object_style_set(edit_btn, "naviframe/toolbar/default");
-	evas_object_size_hint_weight_set(edit_btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(edit_btn, EVAS_HINT_FILL, 0.5);
-	elm_object_text_set(edit_btn, _("Edit"));
-	evas_object_show(edit_btn);
-	elm_object_item_part_content_set(ad->naviframe_item_mostpo, "toolbar_button2", edit_btn);
-*/
-	back_btn = elm_object_item_part_content_get(naviframe_item, "prev_btn");
-	evas_object_smart_callback_add(back_btn, "clicked", _back_btn_cb, ad);
-
+	printf( "Exit gengrid_create_view\n" );
 }

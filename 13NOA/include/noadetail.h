@@ -24,6 +24,7 @@
 #define IMAGE_MAX 79
 
 void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo);
+Evas_Object *create_layout(Evas_Object *parent, char *group);
 
 #endif				
 

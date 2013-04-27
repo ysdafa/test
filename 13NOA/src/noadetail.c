@@ -104,13 +104,35 @@ static void _item_selected(void *data, Evas_Object *obj, void *event_info)
 	printf("--------------------------\nSelected Items ");
 }
 
+static void
+_detail_back_btn_cb(void *data, Evas_Object *obj, void *event_inaviframeo)
+{
+	printf( "Entry _detail_back_btn_cb\n");
+
+	// delete gengrid
+	if( gengrid)
+	{
+		printf( "debug: clear gengrid items \n" );
+		elm_gengrid_clear(gengrid);
+		evas_object_del(gengrid);
+		gengrid = NULL;
+	}
+	
+	demo_data_s *ugd = (demo_data_s *)data;
+	if( ugd )
+	{
+		elm_naviframe_item_pop(ugd->naviframe);
+	}
+	printf( "Eixt _detail_back_btn_cb\n");
+}
+
 
 void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo)
 {
 	printf( "entry _show_noa_detail\n");
 
 	int i,high,width;
-	Evas_Object *btn,*ic;
+	Evas_Object *btn,*ic, *back_btn;
 	char buf[PATH_MAX];
 	static Testitem ti[IMAGE_MAX];
 	
@@ -125,8 +147,10 @@ void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo)
 	elm_entry_scrollable_set(entry, EINA_TRUE);
 	elm_entry_scrollbar_policy_set(entry, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	elm_entry_editable_set(entry, EINA_FALSE);
-	elm_object_part_content_set(layout, "entry", entry);		
-	if(NULL == elm_naviframe_item_push(para->naviframe, NOA_DETAIL, NULL, NULL, layout, NULL))
+	elm_object_part_content_set(layout, "entry", entry);
+
+	//if(NULL == elm_naviframe_item_push(para->naviframe, NOA_DETAIL, NULL, NULL, layout, NULL))
+	if(NULL == elm_naviframe_item_push(para->naviframe, NULL, NULL, NULL, layout, "empty"))
     { 
         printf( "_show_noa_detail, push failed\n");
 	    return;
@@ -207,6 +231,16 @@ void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo)
 	elm_image_resizable_set(ic, EINA_TRUE, EINA_TRUE);
 	elm_object_part_content_set(btn, "icon", ic);
 
+	// button back
+	back_btn = elm_button_add(layout);
+	elm_object_style_set(back_btn, "naviframe/back_btn/default");
+    evas_object_smart_callback_add(back_btn, "clicked", (void *)_detail_back_btn_cb, para);
+    elm_object_focus_allow_set(back_btn,EINA_FALSE);
+	evas_object_show(back_btn);
+	evas_object_color_set(back_btn, BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE, 255);
+	// set back button for  mostp_layout
+	elm_object_part_content_set(layout, "prev_btn", back_btn);
+
 	/* gengrid group */
 	gengrid = elm_gengrid_add(layout);
 	evas_object_size_hint_weight_set(gengrid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -222,7 +256,6 @@ void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo)
 
 	elm_scroller_bounce_set(gengrid, EINA_FALSE, EINA_TRUE);
 	elm_gengrid_multi_select_set(gengrid, EINA_TRUE);
-
 
 	
 	gic = elm_gengrid_item_class_new();
@@ -278,9 +311,7 @@ void _show_noa_detail(void *data, Evas_Object *obj, void *event_inaviframeo)
 			ti[i].checked = EINA_FALSE;
 			
 	}	
-		
 
 
-	
 }
 

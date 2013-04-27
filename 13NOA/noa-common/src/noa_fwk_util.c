@@ -21,6 +21,10 @@
 #include <alarm-engine.h>
 #include <vconf.h>
 #include <stdlib.h>
+
+#include "noa.h"
+
+
 //#include <edje.h>
 
 /**
@@ -117,8 +121,10 @@ Evas_Object *create_bg(Evas_Object * win)
 {
 	Evas_Object *bg = elm_bg_add(win);
 	retvm_if(!bg, NULL, "bg null");
-	evas_object_size_hint_weight_set(bg, EVAS_HINT_EXPAND,
-					 EVAS_HINT_EXPAND);
+	//set image background
+	elm_bg_option_set(bg, ELM_BG_OPTION_CENTER);
+	elm_bg_file_set(bg, BACKGROUND_IMAGE, NULL);
+	evas_object_size_hint_weight_set(bg, EVAS_HINT_EXPAND,EVAS_HINT_EXPAND);
 	elm_win_resize_object_add(win, bg);
 	evas_object_show(bg);
 	return bg;

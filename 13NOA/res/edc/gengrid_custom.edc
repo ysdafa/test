@@ -2,12 +2,14 @@
 
 #include "tmp-inc.edc"
 
+#define LOCAL_GENGRID_PART_TEXTBLOCK_STYLE_COLOR_INC "#ffffff"
+#define LOCAL_GENGRID_FONT_STYLE_18_INC "26"
 
 collections {
 
    styles {
       style { name: "gengrid_textblock_style";
-         base: "font=Tizen:style=Bold font_size="GENGRID_FONT_STYLE_18_INC" color="GENGRID_PART_TEXTBLOCK_STYLE_COLOR_INC" align=center wrap=mixed ellipsis=1.0 text_class=tizen";
+         base: "font=Tizen:style=Bold font_size="LOCAL_GENGRID_FONT_STYLE_18_INC" color="LOCAL_GENGRID_PART_TEXTBLOCK_STYLE_COLOR_INC" align=center wrap=mixed ellipsis=1.0 text_class=tizen";
          tag: "br" "\n";
          tag: "ps" "ps";
          tag: "tab" "\t";
@@ -284,7 +286,8 @@ collections {
             }
          }
          part { name: "elm.text";
-            type: TEXTBLOCK;
+            //type: TEXTBLOCK;
+            type: TEXT;
             mouse_events: 0;
             scale: 1;
             description { state: "default" 0.0;
@@ -297,10 +300,13 @@ collections {
                   relative: 0.0 1.0;
                   to: "right_bottom_padding";
                }
+		color:255 255 255 255;
                text {
-                  style: "gengrid_textblock_style";
+                  //style: "gengrid_textblock_style";
                   min: 0 1;
                   align: 0.5 0.0;
+		  font:"Arial Bold";
+		  size:26;
                }
             }
          }

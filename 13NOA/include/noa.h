@@ -26,8 +26,22 @@
 #define VIEW_EDJ 					EDJ_DIR"/noa.edj"
 #define NUM_OF_ITEMS 				7  //setting interface item number
 #define VIDEO_FILE_LIST 			"Movies"
-#define ICON_DIR 					PREFIX"/res/images"
-#define GENGRID_EDJ					EDJ_DIR"/gengrid_custom.edj"
+#define ICON_DIR 					APP_DIR"/res/images/grid_image"
+#define BACKGROUND_IMAGE          APP_DIR"/res/images/bg_tvshow.png"
+#define VIEW_BUTTON_EDJ 			EDJ_DIR"/create_view_button.edj"
+#define VIEW_NAVIFRAME_EDJ 		EDJ_DIR"/create_view_naviframe.edj"
+#define GENGRID_EDJ				EDJ_DIR"/gengrid_custom.edj"
+
+#define BACKGROUND_RED 27
+#define BACKGROUND_GREEN 15
+#define BACKGROUND_BLUE 44
+
+#define HEAD_BACKGROUND_RED 106
+#define HEAD_BACKGROUND_GREEN 71
+#define HEAD_BACKGROUND_BLUE 171
+
+#define MOVIE_ITEM_HEIGHT 288
+#define MOVIE_ITEM_WIDE 192
 
 #define _EDJ(x) elm_layout_edje_get(x)
 
